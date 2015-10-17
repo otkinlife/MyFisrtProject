@@ -4,10 +4,9 @@ require 'Base/sqlhelper.php';
 header("Content-Type: text/html; charset=UTF-8");
 
 $sqlh = new SqlHelper();
-$sqlh->connectSql();
+
 $sql = "select * from user";
-$result = $sqlh->sqlArray($sql);
-print_r($result);
-$sqlh->closeSql();
+$sqlh->sqlArray($sql);
+$sqlh->sqlJson($sql);
 
 ?>
