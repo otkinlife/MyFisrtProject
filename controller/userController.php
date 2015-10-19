@@ -9,6 +9,10 @@
 require "../model/userModel.php";
 class UserController{
 
+    //用户注册显示
+    public function showadduserAction(){
+        header("Location:/view/register.php");
+    }
     //增加用户
     public function adduserAction(){
         $useremail = $_POST['emailname'].$_POST['email'];
@@ -18,18 +22,9 @@ class UserController{
 
         $flag = $userModel->addUser($useremail,$username,$userpwd);
         if($flag){
-            $result = array(
-                'Code' => '000',
-                'Message' => '成功',
-                'result' => $flag
-            );
+            header("Location:/view/register.php?msg=true");
         }else{
-                $result =array(
-                'Code' => '001',
-                'Message' => '失败',
-                'result' => $flag
-            );
+            header("Location:/view/register.php?msg=false");
         }
-        echo json_encode($result);
     }
 }

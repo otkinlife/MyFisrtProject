@@ -17,6 +17,16 @@
             alert(data);
             });
         })
+        <?php 
+if(!empty($_GET['msg'])){
+    $msg = $_GET['msg'];
+    if($msg == true)
+    {
+        echo "confirm('恭喜！注册成功')";
+    }
+}
+    
+?>
     </script>
 </head>
 <body class="container">
@@ -27,7 +37,7 @@
     <div class="panel-heading">
         <h3 class="panel-title">注册用户</h3>
     </div>
-    <form id="fm" method="post" action="/Base/rooter.php?rooter=User/adduser">
+    <form method="post" action="/Base/rooter.php?rooter=User/adduser">
         <div class="panel-body container">
             <div class="input-group" style="width: 60%">
                 <span class="input-group-addon" id="sizing-addon1">用户邮箱</span>
@@ -53,7 +63,7 @@
                 <input type="password" class="form-control" name="userpwd" placeholder="请输入用户密码" aria-describedby="sizing-addon1">
             </div>
             <div style="margin: 10px">
-                <button id = "bt" type="button" class="btn btn-default">注册</button>
+                <button type="submit" class="btn btn-default">注册</button>
                 <button type="submit" class="btn btn-default">重置</button>
             </div>
         </div>
