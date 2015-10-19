@@ -7,8 +7,10 @@
  */
 
 require "../model/userModel.php";
+class UserController{
 
     //增加用户
+    public function adduserAction(){
         $useremail = $_POST['emailname'].$_POST['email'];
         $username = $_POST['username'];
         $userpwd = $_POST['userpwd'];
@@ -28,4 +30,6 @@ require "../model/userModel.php";
                 'result' => $flag
             );
         }
-        print_r($result);
+        echo json_encode($result);
+    }
+}
