@@ -6,30 +6,14 @@
     <link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
     <script src="../bootstrap/jquery-2.1.4.min.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
-    <script>
-    $(function(){
-    	
-        $("#bt").click(function(){
-            $("#fm").submit();
-            });
-        $.post("/Base/rooter.php?rooter=User/adduser",function(data){
-            var data = JSON.parse(data);
-            alert(data);
-            });
-        })
-        <?php 
-if(!empty($_GET['msg'])){
-    $msg = $_GET['msg'];
-    if($msg == true)
-    {
-        echo "confirm('恭喜！注册成功')";
-    }
-}
     
-?>
-    </script>
 </head>
 <body class="container">
+	{if $data.code == '000'}
+		<div class="alert alert-success" role="alert">{$data.message}</div>	    	
+    {else if $data.code = '001'}
+    	<div class="alert alert-warning" role="alert">{$data.message}</div>
+    {/if}
 <div class="page-header">
     <h1>欢迎来围观哦~！ <small>先注册一个账号吧</small></h1>
 </div>
