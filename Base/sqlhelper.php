@@ -11,7 +11,7 @@ class SqlHelper
 	private $mysqli;
 	//构造函数
 	function __construct(){
-		$this->mysqli = new mysqli("localhost:33060","root","root","myprojects");
+		$this->mysqli = new mysqli("localhost","root","root","myprojects");
 		if($this->mysqli->connect_error){
 			die("数据库连接失败哦~！".$this->mysqli->connect_error);
 		}
@@ -21,6 +21,18 @@ class SqlHelper
 	//返回数组
 	public function sqlArray($sql){
 		$result = $this->mysqli->query($sql)->fetch_all();
+		if($result){
+			return $result;
+		}else{
+			return false;
+		}
+	}
+
+	//返回记录
+	public function sqlRow($sql){
+
+		$result = $this->mysqli->query($sql);
+
 		if($result){
 			return $result;
 		}else{
