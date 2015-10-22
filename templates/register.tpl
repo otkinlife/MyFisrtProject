@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
     <script src="../bootstrap/jquery-2.1.4.min.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script>
+    	alert('{$data.message}');
+    </script>
 </head>
 <body class="container">
 <div class="page-header">
@@ -15,21 +18,6 @@
     <div class="panel-heading">
         <h3 class="panel-title">注册用户</h3>
     </div>
-    {if $data.code = '000'}
-        <div class="alert alert-success">
-            <a href="#" class="close" data-dismiss="alert">
-                &times;
-            </a>
-            <strong>恭喜！</strong>您注册成功了。<a href="/Base/rooter.php?rooter=User/login">快登录吧</a>
-        </div>
-    {else}
-        <div class="alert alert-warning">
-            <a href="#" class="close" data-dismiss="alert">
-                &times;
-            </a>
-            <strong>抱歉</strong>您注册失败了。
-        </div>
-    {/if}
     <form method="post" action="/Base/rooter.php?rooter=User/adduser">
         <div class="panel-body container">
             <div class="input-group" style="width: 60%">
@@ -57,7 +45,8 @@
             </div>
             <div style="margin: 10px">
                 <button type="submit" class="btn btn-default">注册</button>
-                <button type="submit" class="btn btn-default">重置</button>
+                <button type="buttton" class="btn btn-default">重置</button>
+                <a href="/Base/rooter.php?rooter=User/login">赶快去登录吧</a>
             </div>
         </div>
     </form>

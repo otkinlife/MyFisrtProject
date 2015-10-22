@@ -23,7 +23,8 @@ class userModel
     public function getUserByEandP($useremail,$userpwd){
         $sqlhelper = new \SqlHelper();
         $userpwd = md5($userpwd);
-        $sql = "select user_id from user where user_email=".$useremail." and use_pwd=".$userpwd;
+        $sql = "select user_id from user where user_email= '".$useremail."' and user_pwd='".$userpwd."'";
+        //echo $sql;
         $result = $sqlhelper->sqlRow($sql);
         return $result;
     }

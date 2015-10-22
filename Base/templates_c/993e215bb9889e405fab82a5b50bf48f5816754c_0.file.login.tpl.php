@@ -1,14 +1,41 @@
+<?php /* Smarty version 3.1.27, created on 2015-10-22 03:31:38
+         compiled from "C:\wamp\www\templates\login.tpl" */ ?>
+<?php
+/*%%SmartyHeaderCode:284975628589a6a3229_66378565%%*/
+if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '993e215bb9889e405fab82a5b50bf48f5816754c' => 
+    array (
+      0 => 'C:\\wamp\\www\\templates\\login.tpl',
+      1 => 1445478575,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '284975628589a6a3229_66378565',
+  'has_nocache_code' => false,
+  'version' => '3.1.27',
+  'unifunc' => 'content_5628589a6dd169_95520983',
+),false);
+/*/%%SmartyHeaderCode%%*/
+if ($_valid && !is_callable('content_5628589a6dd169_95520983')) {
+function content_5628589a6dd169_95520983 ($_smarty_tpl) {
+
+$_smarty_tpl->properties['nocache_hash'] = '284975628589a6a3229_66378565';
+?>
 <!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
-    <script src="../bootstrap/jquery-2.1.4.min.js"></script>
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
-    <script>
-    {if $data.code =}
-    </script>
+    <?php echo '<script'; ?>
+ src="../bootstrap/jquery-2.1.4.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="../bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
 </head>
 <body class="container">
 
@@ -46,3 +73,6 @@
 
 </body>
 </html>
+<?php }
+}
+?>

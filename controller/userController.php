@@ -20,6 +20,13 @@ class UserController{
         $smarty = new Smarty();
         $smarty->display('../templates/login.tpl');
     }
+    
+    //用户登录显示
+    public function indexAction(){
+        $smarty = new Smarty();
+        $smarty->display('../templates/index.tpl');
+    }
+    
     //增加用户
     public function adduserAction(){
         $smarty = new Smarty();
@@ -30,13 +37,13 @@ class UserController{
         $flag = $userModel->addUser($useremail,$username,$userpwd);
         if($flag){
             $result = array(
-                'code' => '000',
+                'code' => '001',
                 'message' => '恭喜，注册成功',
                 'res' => $flag 
             );
         }else {
             $result = array(
-                'code' => '001',
+                'code' => '000',
                 'message' => '抱歉，注册失败',
                 'res' => $flag
             );
@@ -52,17 +59,17 @@ class UserController{
         $userpwd = $_POST['userpwd'];
         $userModel = new userModel();
         $flag = $userModel->getUserByEandP($useremail,$userpwd);
-        print_r($flag);exit();
         if($flag){
-            $smarty->display('../templates/register.tpl');
+            $smarty->display('../templates/index.tpl');
         }else {
             $result = array(
                 'code' => '001',
                 'message' => '登录失败，用户名或密码不正确',
                 'res' => $flag
             );
+            $smarty->assign('data',$result);
+            $smarty->display('../templates/login.tpl');
         }
-        $smarty->assign('data',$result);
-        $smarty->display('../templates/register.tpl');
+        
     }
 }
