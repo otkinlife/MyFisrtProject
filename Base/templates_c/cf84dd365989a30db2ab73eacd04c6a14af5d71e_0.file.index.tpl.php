@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-22 04:07:24
+<?php /* Smarty version 3.1.27, created on 2015-10-23 09:14:24
          compiled from "C:\wamp\www\templates\index.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:11542562860fc793c69_36116435%%*/
+/*%%SmartyHeaderCode:129975629fa703a4b65_37198785%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,20 +9,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cf84dd365989a30db2ab73eacd04c6a14af5d71e' => 
     array (
       0 => 'C:\\wamp\\www\\templates\\index.tpl',
-      1 => 1445486840,
+      1 => 1445591550,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '11542562860fc793c69_36116435',
+  'nocache_hash' => '129975629fa703a4b65_37198785',
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_562860fc7d8e90_63921332',
+  'unifunc' => 'content_5629fa703e8198_30304107',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_562860fc7d8e90_63921332')) {
-function content_562860fc7d8e90_63921332 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5629fa703e8198_30304107')) {
+function content_5629fa703e8198_30304107 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '11542562860fc793c69_36116435';
+$_smarty_tpl->properties['nocache_hash'] = '129975629fa703a4b65_37198785';
 ?>
 <html>
 <head>
@@ -47,10 +47,10 @@ $_smarty_tpl->properties['nocache_hash'] = '11542562860fc793c69_36116435';
 						<a href="#">主页</a>
 					</li>
 					<li>
-						<a href="#">关于</a>
+						<a href="/Base/rooter.php?rooter=User/showperson">个人</a>
 					</li>
 					<li>
-						<a href="#">联系我们</a>
+						<a href="#">联系我</a>
 					</li>
 				</ul>
 				<h3 class="text-muted">
@@ -68,11 +68,7 @@ $_smarty_tpl->properties['nocache_hash'] = '11542562860fc793c69_36116435';
 			</div>
 			<div class="row marketing">
 			</div>
-			<blockquote>
-				<p>
-					github是一个全球化的开源社区.
-				</p> <small>关键词 <cite>开源</cite></small>
-			</blockquote>
+			
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">
@@ -80,53 +76,64 @@ $_smarty_tpl->properties['nocache_hash'] = '11542562860fc793c69_36116435';
 					</h3>
 				</div>
 				<div class="panel-body">
-					Panel content
+					<blockquote>
+						<p>
+							github是一个全球化的开源社区.
+						</p> <small>关键词 <cite>开源</cite></small>
+					</blockquote>
+					<a>评论数 <span class="badge">50</span></a>
+					<a id="modal-90773" href="#modal-container-90773" role="button" class="btn" data-toggle="modal">发表评论</a>
+					<div id="modal-container-90773" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-header">
+							 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							<h3 id="myModalLabel">
+								写写你的看法~
+							</h3>
+						</div>
+						<div class="modal-body">
+							<form role="form">
+							  <div class="form-group">
+							    <label for="name">文本框</label>
+							    <textarea class="form-control" style="width:80%" rows="5"></textarea>
+							  </div>
+							</form>
+							
+						</div>
+						 
+						<div class="modal-footer">
+							 <button class="btn" data-dismiss="modal" aria-hidden="true">取消评论</button> <button class="btn btn-primary">发表评论</button>
+						</div>
+					</div>
 				</div>
 				<div class="panel-footer">
-					Panel footer
-				</div>
-			</div> <a id="modal-90773" href="#modal-container-90773" role="button" class="btn" data-toggle="modal">触发遮罩窗体</a>
-			<div id="modal-container-90773" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-header">
-					 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-					<h3 id="myModalLabel">
-						标题栏
-					</h3>
-				</div>
-				<div class="modal-body">
-					<p>
-						显示信息
-					</p>
-				</div>
-				<div class="modal-footer">
-					 <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button> <button class="btn btn-primary">保存设置</button>
+					<div class="pagination">
+						<ul>
+							<li>
+								<a href="#">上一页</a>
+							</li>
+							<li>
+								<a href="#">1</a>
+							</li>
+							<li>
+								<a href="#">2</a>
+							</li>
+							<li>
+								<a href="#">3</a>
+							</li>
+							<li>
+								<a href="#">4</a>
+							</li>
+							<li>
+								<a href="#">5</a>
+							</li>
+							<li>
+								<a href="#">下一页</a>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
-			<div class="pagination">
-				<ul>
-					<li>
-						<a href="#">上一页</a>
-					</li>
-					<li>
-						<a href="#">1</a>
-					</li>
-					<li>
-						<a href="#">2</a>
-					</li>
-					<li>
-						<a href="#">3</a>
-					</li>
-					<li>
-						<a href="#">4</a>
-					</li>
-					<li>
-						<a href="#">5</a>
-					</li>
-					<li>
-						<a href="#">下一页</a>
-					</li>
-				</ul>
-			</div>
+			
 		</div>
 	</div>
 </div>

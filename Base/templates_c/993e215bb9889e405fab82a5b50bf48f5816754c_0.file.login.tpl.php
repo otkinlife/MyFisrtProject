@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-22 03:31:38
+<?php /* Smarty version 3.1.27, created on 2015-10-23 10:51:23
          compiled from "C:\wamp\www\templates\login.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:284975628589a6a3229_66378565%%*/
+/*%%SmartyHeaderCode:19737562a112b303be2_45346835%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,20 +9,24 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '993e215bb9889e405fab82a5b50bf48f5816754c' => 
     array (
       0 => 'C:\\wamp\\www\\templates\\login.tpl',
-      1 => 1445478575,
+      1 => 1445597465,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '284975628589a6a3229_66378565',
+  'nocache_hash' => '19737562a112b303be2_45346835',
+  'variables' => 
+  array (
+    'data' => 0,
+  ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5628589a6dd169_95520983',
+  'unifunc' => 'content_562a112b626f34_79003245',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5628589a6dd169_95520983')) {
-function content_5628589a6dd169_95520983 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_562a112b626f34_79003245')) {
+function content_562a112b626f34_79003245 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '284975628589a6a3229_66378565';
+$_smarty_tpl->properties['nocache_hash'] = '19737562a112b303be2_45346835';
 ?>
 <!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
@@ -36,6 +40,14 @@ $_smarty_tpl->properties['nocache_hash'] = '284975628589a6a3229_66378565';
     <?php echo '<script'; ?>
  src="../bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
 >
+    <?php if ($_smarty_tpl->tpl_vars['data']->value['code'] != '') {?>
+    	<?php echo '<script'; ?>
+>
+    	alert('<?php echo $_smarty_tpl->tpl_vars['data']->value['message'];?>
+');
+    	<?php echo '</script'; ?>
+>
+    <?php }?>
 </head>
 <body class="container">
 

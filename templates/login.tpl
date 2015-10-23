@@ -6,9 +6,11 @@
     <link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
     <script src="../bootstrap/jquery-2.1.4.min.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
-    <script>
-    {if $data.code =}
-    </script>
+    {if $data.code!=''}
+    	<script>
+    	alert('{$data.message}');
+    	</script>
+    {/if}
 </head>
 <body class="container">
 

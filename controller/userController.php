@@ -13,17 +13,35 @@ class UserController{
     //用户注册显示
     public function showadduserAction(){
         $smarty = new Smarty();
+        $result = array(
+            'code' => '',
+            'message' => '',
+            'res' => ''
+        );
+        $smarty->assign('data',$result);
         $smarty->display('../templates/register.tpl');
     }
     //用户登录显示
-    public function loginAction(){
+    public function loginAction(){ 
         $smarty = new Smarty();
+        $result = array(
+            'code' => '',
+            'message' => '',
+            'res' => ''
+        );
+        $smarty->assign('data',$result);
         $smarty->display('../templates/login.tpl');
     }
     
     //用户登录显示
     public function indexAction(){
         $smarty = new Smarty();
+        $result = array(
+            'code' => '',
+            'message' => '',
+            'res' => ''
+        );
+        $smarty->assign('data',$result);
         $smarty->display('../templates/index.tpl');
     }
     
@@ -55,10 +73,11 @@ class UserController{
     //检查用户
     public function checkUserAction(){
         $smarty = new Smarty();
-        $useremail = $_POST['useremail'];
-        $userpwd = $_POST['userpwd'];
+        $useremail = empty($_POST['useremail'])?'':$_POST['useremail'];
+        $userpwd = empty($_POST['userpwd'])?'':$_POST['userpwd'];
         $userModel = new userModel();
         $flag = $userModel->getUserByEandP($useremail,$userpwd);
+        //print_r($flag);exit();
         if($flag){
             $smarty->display('../templates/index.tpl');
         }else {
@@ -70,6 +89,11 @@ class UserController{
             $smarty->assign('data',$result);
             $smarty->display('../templates/login.tpl');
         }
-        
+    }
+    
+    //显示
+    public function showpersonAction(){
+        $smarty = new Smarty();
+        $smarty->display('../templates/personal.tpl');
     }
 }

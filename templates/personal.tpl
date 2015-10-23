@@ -7,14 +7,14 @@
 </head>
 <body>
 <div class="container-fluid">
-	<div class="row-fluid">
+<div class="row-fluid">
 		<div class="span12">
 			<div class="header">
 				<ul class="nav nav-pills pull-right">
-					<li class="active">
+					<li>
 						<a href="#">主页</a>
 					</li>
-					<li>
+					<li class="active">
 						<a href="/Base/rooter.php?rooter=User/showperson">个人</a>
 					</li>
 					<li>
@@ -25,37 +25,29 @@
 					Let's see
 				</h3>
 			</div>
-			<div class="jumbotron well">
-				<h1>
-					快来跟我们一起围观
-				</h1>
-				<p class="lead">
-					世界那么大，我想去看看！这么多趣事等着你去发现，快乐就是这么简单~！
-				</p>
-				
-			</div>
-			<div class="row marketing">
-			</div>
-			
+	<div class="row-fluid" style="margin-top:10px;">
+		<div class="span8">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title">
-						趣事广场
-					</h3>
+					<a class="panel-title">
+						我的趣事
+					</a>
+					
+					<span id="modal-90773" 
+						data-toggle="modal"
+						style = "float:right"
+						href="#modal-container-90773"
+						class="glyphicon glyphicon-plus" 
+						aria-hidden="true">
+					</span>
+						
+					</span>
 				</div>
-				<div class="panel-body">
-					<blockquote>
-						<p>
-							github是一个全球化的开源社区.
-						</p> <small>关键词 <cite>开源</cite></small>
-					</blockquote>
-					<a>评论数 <span class="badge">50</span></a>
-					<a id="modal-90773" href="#modal-container-90773" role="button" class="btn" data-toggle="modal">发表评论</a>
-					<div id="modal-container-90773" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div id="modal-container-90773" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						<div class="modal-header">
 							 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 							<h3 id="myModalLabel">
-								写写你的看法~
+								有什么开心的事，一起分享吧~！
 							</h3>
 						</div>
 						<div class="modal-body">
@@ -69,39 +61,33 @@
 						</div>
 						 
 						<div class="modal-footer">
-							 <button class="btn" data-dismiss="modal" aria-hidden="true">取消评论</button> <button class="btn btn-primary">发表评论</button>
+							 <button class="btn" data-dismiss="modal" aria-hidden="true">不发表了</button> 
+							 <button class="btn btn-primary">发表出去</button>
 						</div>
 					</div>
+				<div class="panel-body">
+					Panel content
 				</div>
 				<div class="panel-footer">
-					<div class="pagination">
-						<ul>
-							<li>
-								<a href="#">上一页</a>
-							</li>
-							<li>
-								<a href="#">1</a>
-							</li>
-							<li>
-								<a href="#">2</a>
-							</li>
-							<li>
-								<a href="#">3</a>
-							</li>
-							<li>
-								<a href="#">4</a>
-							</li>
-							<li>
-								<a href="#">5</a>
-							</li>
-							<li>
-								<a href="#">下一页</a>
-							</li>
-						</ul>
-					</div>
+					Panel footer
 				</div>
 			</div>
+		</div>
+		<div class="span4">
 			
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<a class="panel-title">
+						我的资料
+					</h3>
+				</div>
+				<div class="panel-body">
+					
+				</div>
+				<div class="panel-footer">
+					Panel footer
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

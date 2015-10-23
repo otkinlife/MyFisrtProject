@@ -31,8 +31,8 @@ class SqlHelper
 	//返回记录
 	public function sqlRow($sql){
 
-		$result = $this->mysqli->query($sql);
-
+		$result = $this->mysqli->query($sql)->num_rows;
+		
 		if($result){
 			return $result;
 		}else{
@@ -43,6 +43,7 @@ class SqlHelper
 	//返回json
 	public function sqlJson($sql){
 		$result = $this->mysqli->query($sql)->fetch_all();
+		
 		if($result){
 			echo json_encode($result);
 		}else{
