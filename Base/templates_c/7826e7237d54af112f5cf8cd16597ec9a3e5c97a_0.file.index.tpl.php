@@ -1,9 +1,45 @@
+<?php /* Smarty version 3.1.27, created on 2015-10-25 14:05:47
+         compiled from "D:\wamp\www\templates\index.tpl" */ ?>
+<?php
+/*%%SmartyHeaderCode:13367562cd3ab9e8239_34748776%%*/
+if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '7826e7237d54af112f5cf8cd16597ec9a3e5c97a' => 
+    array (
+      0 => 'D:\\wamp\\www\\templates\\index.tpl',
+      1 => 1445778344,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '13367562cd3ab9e8239_34748776',
+  'variables' => 
+  array (
+    'useremail' => 0,
+  ),
+  'has_nocache_code' => false,
+  'version' => '3.1.27',
+  'unifunc' => 'content_562cd3aba217c2_37680299',
+),false);
+/*/%%SmartyHeaderCode%%*/
+if ($_valid && !is_callable('content_562cd3aba217c2_37680299')) {
+function content_562cd3aba217c2_37680299 ($_smarty_tpl) {
+
+$_smarty_tpl->properties['nocache_hash'] = '13367562cd3ab9e8239_34748776';
+?>
 <html>
 <head>
-<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-2.0.0.min.js"></script>
-<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-ui"></script>
+<?php echo '<script'; ?>
+ type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-2.0.0.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-ui"><?php echo '</script'; ?>
+>
 <link href="http://www.francescomalagrino.com/BootstrapPageGenerator/3/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">
-<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/bootstrap.min.js"></script>
+<?php echo '<script'; ?>
+ type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
 </head>
 <body>
 <div class="container-fluid">
@@ -22,7 +58,8 @@
 					</li>
 				</ul>
 				<h5 class="text-muted">
-					欢迎您{$useremail}
+					欢迎您<?php echo $_smarty_tpl->tpl_vars['useremail']->value;?>
+
 				</h5>
 			</div>
 			<div class="jumbotron well">
@@ -106,4 +143,6 @@
 	</div>
 </div>
 </body>
-</html>
+</html><?php }
+}
+?>

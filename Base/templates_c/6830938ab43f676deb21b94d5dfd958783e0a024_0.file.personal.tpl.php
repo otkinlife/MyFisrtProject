@@ -1,14 +1,54 @@
+<?php /* Smarty version 3.1.27, created on 2015-10-25 15:30:43
+         compiled from "D:\wamp\www\templates\personal.tpl" */ ?>
+<?php
+/*%%SmartyHeaderCode:13815562ce793e9e117_82603482%%*/
+if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '6830938ab43f676deb21b94d5dfd958783e0a024' => 
+    array (
+      0 => 'D:\\wamp\\www\\templates\\personal.tpl',
+      1 => 1445783349,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '13815562ce793e9e117_82603482',
+  'variables' => 
+  array (
+    'data' => 0,
+    'useremail' => 0,
+  ),
+  'has_nocache_code' => false,
+  'version' => '3.1.27',
+  'unifunc' => 'content_562ce793ee8bc5_52339725',
+),false);
+/*/%%SmartyHeaderCode%%*/
+if ($_valid && !is_callable('content_562ce793ee8bc5_52339725')) {
+function content_562ce793ee8bc5_52339725 ($_smarty_tpl) {
+
+$_smarty_tpl->properties['nocache_hash'] = '13815562ce793e9e117_82603482';
+?>
 <html>
 <head>
-<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-2.0.0.min.js"></script>
-<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-ui"></script>
+<?php echo '<script'; ?>
+ type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-2.0.0.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-ui"><?php echo '</script'; ?>
+>
 <link href="http://www.francescomalagrino.com/BootstrapPageGenerator/3/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">
-<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/bootstrap.min.js"></script>
-<script>
-	{if $data.code!=""}
-		alert('{$data.message}');
-	{/if}
-</script>
+<?php echo '<script'; ?>
+ type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+>
+	<?php if ($_smarty_tpl->tpl_vars['data']->value['code'] != '') {?>
+		alert('<?php echo $_smarty_tpl->tpl_vars['data']->value['message'];?>
+');
+	<?php }?>
+<?php echo '</script'; ?>
+>
 </head>
 <body>
 <div class="container-fluid">
@@ -27,7 +67,8 @@
 					</li>
 				</ul>
 				<h5 class="text-muted">
-					欢迎您{$useremail}
+					欢迎您<?php echo $_smarty_tpl->tpl_vars['useremail']->value;?>
+
 				</h5>
 
 			</div>
@@ -124,4 +165,6 @@
 	</div>
 </div>
 </body>
-</html>
+</html><?php }
+}
+?>

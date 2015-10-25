@@ -7,7 +7,9 @@
     <script src="../bootstrap/jquery-2.1.4.min.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
     <script>
+        {if $data.code!=""}
     	alert('{$data.message}');
+        {/if}
     </script>
 </head>
 <body class="container">

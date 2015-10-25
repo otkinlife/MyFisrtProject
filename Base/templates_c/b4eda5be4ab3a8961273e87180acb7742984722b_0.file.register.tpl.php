@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-21 15:51:31
+<?php /* Smarty version 3.1.27, created on 2015-10-25 03:37:47
          compiled from "D:\wamp\www\templates\register.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:1216256279863abc0d0_85485330%%*/
+/*%%SmartyHeaderCode:23193562c407bc12880_82188966%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,20 +9,24 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b4eda5be4ab3a8961273e87180acb7742984722b' => 
     array (
       0 => 'D:\\wamp\\www\\templates\\register.tpl',
-      1 => 1445435428,
+      1 => 1445740665,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1216256279863abc0d0_85485330',
+  'nocache_hash' => '23193562c407bc12880_82188966',
+  'variables' => 
+  array (
+    'data' => 0,
+  ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_56279863aeb3b4_23872910',
+  'unifunc' => 'content_562c407bc75962_37677618',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56279863aeb3b4_23872910')) {
-function content_56279863aeb3b4_23872910 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_562c407bc75962_37677618')) {
+function content_562c407bc75962_37677618 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '1216256279863abc0d0_85485330';
+$_smarty_tpl->properties['nocache_hash'] = '23193562c407bc12880_82188966';
 ?>
 <!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
@@ -36,6 +40,14 @@ $_smarty_tpl->properties['nocache_hash'] = '1216256279863abc0d0_85485330';
     <?php echo '<script'; ?>
  src="../bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
 >
+    <?php echo '<script'; ?>
+>
+        <?php if ($_smarty_tpl->tpl_vars['data']->value['code'] != '') {?>
+    	alert('<?php echo $_smarty_tpl->tpl_vars['data']->value['message'];?>
+');
+        <?php }?>
+    <?php echo '</script'; ?>
+>
 </head>
 <body class="container">
 <div class="page-header">
@@ -45,22 +57,6 @@ $_smarty_tpl->properties['nocache_hash'] = '1216256279863abc0d0_85485330';
     <div class="panel-heading">
         <h3 class="panel-title">注册用户</h3>
     </div>
-    <?php if (!isset($_smarty_tpl->tpl_vars['data']) || !is_array($_smarty_tpl->tpl_vars['data']->value)) $_smarty_tpl->createLocalArrayVariable('data');
-if ($_smarty_tpl->tpl_vars['data']->value['code'] = '000') {?>
-        <div class="alert alert-success">
-            <a href="#" class="close" data-dismiss="alert">
-                &times;
-            </a>
-            <strong>恭喜！</strong>您注册成功了。<a href="/Base/rooter.php?rooter=User/login">快登录吧</a>
-        </div>
-    <?php } else { ?>
-        <div class="alert alert-warning">
-            <a href="#" class="close" data-dismiss="alert">
-                &times;
-            </a>
-            <strong>抱歉</strong>您注册失败了。
-        </div>
-    <?php }?>
     <form method="post" action="/Base/rooter.php?rooter=User/adduser">
         <div class="panel-body container">
             <div class="input-group" style="width: 60%">
@@ -88,7 +84,8 @@ if ($_smarty_tpl->tpl_vars['data']->value['code'] = '000') {?>
             </div>
             <div style="margin: 10px">
                 <button type="submit" class="btn btn-default">注册</button>
-                <button type="submit" class="btn btn-default">重置</button>
+                <button type="buttton" class="btn btn-default">重置</button>
+                <a href="/Base/rooter.php?rooter=User/login">赶快去登录吧</a>
             </div>
         </div>
     </form>

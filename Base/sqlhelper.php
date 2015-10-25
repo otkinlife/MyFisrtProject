@@ -1,5 +1,5 @@
 <?php
-require 'tool.php';
+//require 'tool.php';
 //设置编码
 header("Content-Type: text/html; charset=UTF-8");
 
@@ -11,7 +11,7 @@ class SqlHelper
 	private $mysqli;
 	//构造函数
 	function __construct(){
-		$this->mysqli = new mysqli("localhost:33060","root","root","myprojects");
+		$this->mysqli = new mysqli("localhost","root","root","myprojects");
 		if($this->mysqli->connect_error){
 			die("数据库连接失败哦~！".$this->mysqli->connect_error);
 		}

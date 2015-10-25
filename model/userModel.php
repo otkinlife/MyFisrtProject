@@ -6,26 +6,32 @@
  * Time: 22:02
  */
 
-require "../Base/sqlhelper.php";
+require_once  "../Base/sqlhelper.php";
 
-class userModel
+class userModel extends SqlHelper
 {
     //增加用户
     public function addUser($useremail,$username,$userpwd){
-        $sqlhelper = new \SqlHelper();
         $userpwd = md5($userpwd);
         $sql = "INSERT INTO user (user_email, user_name, user_pwd)VALUES ('".$useremail."','".$username."','".$userpwd."')";
-        $reslut = $sqlhelper->sqlBool($sql);
+        $reslut = $this->sqlBool($sql);
         return $reslut;
     }
 
     //检查用户
     public function getUserByEandP($useremail,$userpwd){
-        $sqlhelper = new \SqlHelper();
         $userpwd = md5($userpwd);
         $sql = "select user_id from user where user_email= '".$useremail."' and user_pwd='".$userpwd."'";
         //echo $sql;
-        $result = $sqlhelper->sqlRow($sql);
+        $result = $this->sqlArray($sql);
+        $result = $result['0']['0'];
+        return $result;
+    }
+
+    //根据用户用户id，获取该用户资料
+    public function  getContentById($userid){
+        $sql = "select * from user where user_id= '".$userid."'";
+        $result = $this->sqlArray();
         return $result;
     }
 }
