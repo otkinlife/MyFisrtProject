@@ -6,7 +6,8 @@
  * Time: 22:01
  */
 
-require "../model/userModel.php";
+require_once "../model/userModel.php";
+require_once "../model/thingModel.php";
 require_once '../libs/Smarty.class.php';
 class UserController{
 
@@ -36,20 +37,28 @@ class UserController{
     //主页显示
     public function indexAction(){
         $smarty = new Smarty();
+        $thingmodel = new thingModel();
         session_start();
-        $useremail = $_SESSION['useremail'];
+        $username = $_SESSION['username'];
         //echo $_SESSION['useremail'];
-        $smarty->assign('useremail',$useremail);
+        $result = $thingmodel->selectAll();
+        //print_r($result);exit();
+        $smarty->assign('data',$result);
+        $smarty->assign('username',$username);
         $smarty->display('../templates/index.tpl');
     }
 
     //显示个人
     public function showpersonAction(){
         $smarty = new Smarty();
+        $thingmodel = new thingModel();
         session_start();
-        $useremail = $_SESSION['useremail'];
+        $username = $_SESSION['username'];
+        $userid = $_SESSION['userid'];
         //echo $_SESSION['useremail'];
-        $smarty->assign('useremail',$useremail);
+        $result = $thingmodel->selectById($userid);
+        $smarty->assign('data',$result);
+        $smarty->assign('username',$username);
         $smarty->display('../templates/personal.tpl');
     }
 
@@ -87,11 +96,11 @@ class UserController{
         $userModel = new userModel();
         $flag = $userModel->getUserByEandP($useremail,$userpwd);
         //print_r($flag);exit();
-        if($flag){
-                $_SESSION['useremail']= $useremail;
-                $_SESSION['userid'] = $flag;
+        if($flag['0']['0']){
+                $_SESSION['username']= $flag['0']['2'];
+                $_SESSION['userid'] = $flag['0']['0'];
                 //echo $_SESSION['useremail'];exit();
-                $smarty->assign('useremail',$useremail);
+                $smarty->assign('username',$flag['0']['2']);
                 $smarty->display('../templates/index.tpl');
         }else {
             $result = array(

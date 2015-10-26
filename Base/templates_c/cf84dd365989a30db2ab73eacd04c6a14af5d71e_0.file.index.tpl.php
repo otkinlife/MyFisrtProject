@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-23 09:14:24
+<?php /* Smarty version 3.1.27, created on 2015-10-26 02:27:02
          compiled from "C:\wamp\www\templates\index.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:129975629fa703a4b65_37198785%%*/
+/*%%SmartyHeaderCode:7559562d8f764c5459_30284581%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,20 +9,26 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cf84dd365989a30db2ab73eacd04c6a14af5d71e' => 
     array (
       0 => 'C:\\wamp\\www\\templates\\index.tpl',
-      1 => 1445591550,
+      1 => 1445826419,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '129975629fa703a4b65_37198785',
+  'nocache_hash' => '7559562d8f764c5459_30284581',
+  'variables' => 
+  array (
+    'username' => 0,
+    'data' => 0,
+    'thing' => 0,
+  ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5629fa703e8198_30304107',
+  'unifunc' => 'content_562d8f76551cf3_88840863',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5629fa703e8198_30304107')) {
-function content_5629fa703e8198_30304107 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_562d8f76551cf3_88840863')) {
+function content_562d8f76551cf3_88840863 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '129975629fa703a4b65_37198785';
+$_smarty_tpl->properties['nocache_hash'] = '7559562d8f764c5459_30284581';
 ?>
 <html>
 <head>
@@ -53,9 +59,10 @@ $_smarty_tpl->properties['nocache_hash'] = '129975629fa703a4b65_37198785';
 						<a href="#">联系我</a>
 					</li>
 				</ul>
-				<h3 class="text-muted">
-					Let's see
-				</h3>
+				<h5 class="text-muted">
+					欢迎您<?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+
+				</h5>
 			</div>
 			<div class="jumbotron well">
 				<h1>
@@ -76,13 +83,30 @@ $_smarty_tpl->properties['nocache_hash'] = '129975629fa703a4b65_37198785';
 					</h3>
 				</div>
 				<div class="panel-body">
+				<?php
+$_from = $_smarty_tpl->tpl_vars['data']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$_smarty_tpl->tpl_vars['thing'] = new Smarty_Variable;
+$_smarty_tpl->tpl_vars['thing']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['thing']->value) {
+$_smarty_tpl->tpl_vars['thing']->_loop = true;
+$foreach_thing_Sav = $_smarty_tpl->tpl_vars['thing'];
+?>
 					<blockquote>
 						<p>
-							github是一个全球化的开源社区.
-						</p> <small>关键词 <cite>开源</cite></small>
+							<?php echo $_smarty_tpl->tpl_vars['thing']->value['2'];?>
+
+						</p> 
 					</blockquote>
 					<a>评论数 <span class="badge">50</span></a>
 					<a id="modal-90773" href="#modal-container-90773" role="button" class="btn" data-toggle="modal">发表评论</a>
+					<hr/>
+				<?php
+$_smarty_tpl->tpl_vars['thing'] = $foreach_thing_Sav;
+}
+?>
 					<div id="modal-container-90773" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						<div class="modal-header">
 							 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -94,7 +118,7 @@ $_smarty_tpl->properties['nocache_hash'] = '129975629fa703a4b65_37198785';
 							<form role="form">
 							  <div class="form-group">
 							    <label for="name">文本框</label>
-							    <textarea class="form-control" style="width:80%" rows="5"></textarea>
+							    <textarea class="form-control" style="width:100%" rows="5"></textarea>
 							  </div>
 							</form>
 							

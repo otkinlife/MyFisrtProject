@@ -22,7 +22,7 @@
 					</li>
 				</ul>
 				<h5 class="text-muted">
-					欢迎您{$useremail}
+					欢迎您{$username}
 				</h5>
 			</div>
 			<div class="jumbotron well">
@@ -44,13 +44,16 @@
 					</h3>
 				</div>
 				<div class="panel-body">
+				{foreach from=$data item=thing}
 					<blockquote>
 						<p>
-							github是一个全球化的开源社区.
-						</p> <small>关键词 <cite>开源</cite></small>
+							{$thing['2']}
+						</p> 
 					</blockquote>
 					<a>评论数 <span class="badge">50</span></a>
 					<a id="modal-90773" href="#modal-container-90773" role="button" class="btn" data-toggle="modal">发表评论</a>
+					<hr/>
+				{/foreach}
 					<div id="modal-container-90773" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						<div class="modal-header">
 							 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>

@@ -21,10 +21,11 @@ class userModel extends SqlHelper
     //检查用户
     public function getUserByEandP($useremail,$userpwd){
         $userpwd = md5($userpwd);
-        $sql = "select user_id from user where user_email= '".$useremail."' and user_pwd='".$userpwd."'";
+        $sql = "select * from user where user_email= '".$useremail."' and user_pwd='".$userpwd."'";
         //echo $sql;
         $result = $this->sqlArray($sql);
-        $result = $result['0']['0'];
+        //print_r($result);exit();
+        //$result = $result['0']['0'];
         return $result;
     }
 

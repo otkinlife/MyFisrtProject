@@ -16,4 +16,19 @@ class thingModel extends SqlHelper
         $result = $this->sqlBool($sql);
         return $result;
     }
+    
+    //返回所有趣事
+    public function selectAll(){
+        $sql = "select * from qushi_thing";
+        $result = $this->sqlArray($sql);
+        //print_r($result);
+        return $result;
+    }
+    
+    //根据userid返回趣事
+    public function selectById($userid){
+        $sql = "select * from qushi_thing where user_id='".$userid."'";
+        $result = $this->sqlArray($sql);
+        return $result;
+    }
 }

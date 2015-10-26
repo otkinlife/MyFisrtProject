@@ -27,7 +27,7 @@
 					</li>
 				</ul>
 				<h5 class="text-muted">
-					欢迎您{$useremail}
+					欢迎您{$username}
 				</h5>
 
 			</div>
@@ -74,7 +74,16 @@
 						</div>
 					</form>
 				<div class="panel-body">
-					Panel content
+					{foreach from=$data item=thing}
+						<blockquote>
+							<p>
+								{$thing['2']}
+							</p> 
+						</blockquote>
+						<a>评论数 <span class="badge">50</span></a>
+						<a role="button" class="btn">查看详情</a>
+						<hr/>
+					{/foreach}
 				</div>
 				<div class="panel-footer">
 					<div class="pagination">

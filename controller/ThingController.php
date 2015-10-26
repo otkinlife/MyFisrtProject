@@ -1,5 +1,5 @@
 <?php
-require "../model/thingModel.php";
+require_once "../model/thingModel.php";
 require_once '../libs/Smarty.class.php';
 /**
  * Created by PhpStorm.
@@ -15,6 +15,7 @@ class ThingController
         $smarty = new Smarty();
         session_start();
         $userid = $_SESSION['userid'];
+        $username = $_SESSION['username'];
         $thingcontent = empty($_POST['thingcontent'])?'':$_POST['thingcontent'];
         $flag = $thingmodel->addThing($userid,$thingcontent);
         if($flag){
@@ -31,6 +32,9 @@ class ThingController
             );
         }
         $smarty->assign('data',$result);
+        $smarty->assign('username',$username);
         $smarty->display('../templates/personal.tpl');
     }
+    
+    
 }
