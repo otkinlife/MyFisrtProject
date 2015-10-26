@@ -35,35 +35,24 @@
 				</h5>
 			</div>
 			<div class="jumbotron well">
-				<h1>
-					快来跟我们一起围观
-				</h1>
-				<p class="lead">
-					世界那么大，我想去看看！这么多趣事等着你去发现，快乐就是这么简单~！
-				</p>
-				
+				趣事一
 			</div>
 			<div class="row marketing">
 			</div>
 			
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title">
-						趣事广场
-					</h3>
+					<a id="modal-90773" href="#modal-container-90773" role="button" class="btn" data-toggle="modal">评论</a>
 				</div>
 				<div class="panel-body">
-				{foreach from=$data item=thing}
+				
 					<blockquote>
-						<p>
-							{$thing['2']}
-						</p> 
+						111111111111
 					</blockquote>
-					<a>评论数 <span class="badge">50</span></a>
-					<a href="/Base/rooter.php?rooter=Thing/showDetail" role="button" class="btn">查看详情</a>
-					<a id="modal-90773" href="#modal-container-90773" role="button" class="btn" data-toggle="modal">发表评论</a>
+				
+					
 					<hr/>
-				{/foreach}
+			
 					<div id="modal-container-90773" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						<div class="modal-header">
 							 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>

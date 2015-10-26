@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-26 02:32:54
+<?php /* Smarty version 3.1.27, created on 2015-10-26 09:57:26
          compiled from "C:\wamp\www\templates\personal.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:25780562d90d6bc60e7_30831905%%*/
+/*%%SmartyHeaderCode:7709562df906a896a1_90826878%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,26 +9,28 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f938a580674b7ed31d8b88c2de93f3e696a4575c' => 
     array (
       0 => 'C:\\wamp\\www\\templates\\personal.tpl',
-      1 => 1445826763,
+      1 => 1445853123,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '25780562d90d6bc60e7_30831905',
+  'nocache_hash' => '7709562df906a896a1_90826878',
   'variables' => 
   array (
     'data' => 0,
     'username' => 0,
+    'res' => 0,
     'thing' => 0,
+    'person' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_562d90d6c262c9_55070767',
+  'unifunc' => 'content_562df906b218f1_46810721',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_562d90d6c262c9_55070767')) {
-function content_562d90d6c262c9_55070767 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_562df906b218f1_46810721')) {
+function content_562df906b218f1_46810721 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '25780562d90d6bc60e7_30831905';
+$_smarty_tpl->properties['nocache_hash'] = '7709562df906a896a1_90826878';
 ?>
 <html>
 <head>
@@ -50,6 +52,17 @@ $_smarty_tpl->properties['nocache_hash'] = '25780562d90d6bc60e7_30831905';
 	<?php }?>
 <?php echo '</script'; ?>
 >
+<?php echo '<script'; ?>
+>
+	$(function(){
+		$("#logout").click(function(){
+			if(confirm("真的要离开吗 ？")){
+				window.location.href = "/Base/rooter.php?rooter=User/login";
+			}		
+		});
+	})
+<?php echo '</script'; ?>
+>
 </head>
 <body>
 <div class="container-fluid">
@@ -64,7 +77,7 @@ $_smarty_tpl->properties['nocache_hash'] = '25780562d90d6bc60e7_30831905';
 						<a href="/Base/rooter.php?rooter=User/showperson">个人</a>
 					</li>
 					<li>
-						<a href="#">联系我</a>
+						<a id="logout">登出</a>
 					</li>
 				</ul>
 				<h5 class="text-muted">
@@ -117,7 +130,7 @@ $_smarty_tpl->properties['nocache_hash'] = '25780562d90d6bc60e7_30831905';
 					</form>
 				<div class="panel-body">
 					<?php
-$_from = $_smarty_tpl->tpl_vars['data']->value;
+$_from = $_smarty_tpl->tpl_vars['res']->value;
 if (!is_array($_from) && !is_object($_from)) {
 settype($_from, 'array');
 }
@@ -134,7 +147,7 @@ $foreach_thing_Sav = $_smarty_tpl->tpl_vars['thing'];
 							</p> 
 						</blockquote>
 						<a>评论数 <span class="badge">50</span></a>
-						<a id="modal-90773" href="#modal-container-90773" role="button" class="btn" data-toggle="modal">发表评论</a>
+						<a href="/Base/rooter.php?rooter=Thing/showDetail" role="button" class="btn">查看详情</a>
 						<hr/>
 					<?php
 $_smarty_tpl->tpl_vars['thing'] = $foreach_thing_Sav;
@@ -171,20 +184,22 @@ $_smarty_tpl->tpl_vars['thing'] = $foreach_thing_Sav;
 			</div>
 		</div>
 		<div class="span4">
-			
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<a class="panel-title">
-						我的资料
-					</h3>
-				</div>
-				<div class="panel-body">
-					
-				</div>
-				<div class="panel-footer">
-					Panel footer
-				</div>
-			</div>
+			<a href="#" class="list-group-item active">
+			   	<img src='../upload/test.jpg' width="50px;" height="50px;">&nbsp;&nbsp;<span>我的资料</span>
+			</a>
+			<a class="list-group-item">
+				我的id：<?php echo $_smarty_tpl->tpl_vars['person']->value['0']['0'];?>
+
+			</a>
+			<a class="list-group-item">
+				我的邮箱：<?php echo $_smarty_tpl->tpl_vars['person']->value['0']['1'];?>
+
+			</a>
+			<a href="#" class="list-group-item">
+				我的昵称：<?php echo $_smarty_tpl->tpl_vars['person']->value['0']['2'];?>
+
+			</a>
+			<a href="#" class="list-group-item">共发表了12条趣事</a>
 		</div>
 	</div>
 </div>

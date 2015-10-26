@@ -6,6 +6,13 @@
     <link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
     <script src="../bootstrap/jquery-2.1.4.min.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script>
+    	$(function(){
+    		$("#register").click(function(){
+    			window.location.href="/Base/rooter.php?rooter=User/showadduser";
+    		});
+    	})
+    </script>
     {if $data.code!=''}
     	<script>
     	alert('{$data.message}');
@@ -34,13 +41,13 @@
                     <input type="password" class="form-control" name="userpwd" placeholder="请输入用户密码" aria-describedby="sizing-addon1">
           </div>
           <div class="input-group input-group" style="width: 100%;margin-top: 10px">
-                    <span class="input-group-addon" id="sizing-addon1">验&nbsp;&nbsp;证&nbsp;&nbsp;码</span>
-                    <input type="password" class="form-control" name="username" placeholder="请输入验证码" aria-describedby="sizing-addon1">
+                    <span class="input-group-addon" id="sizing-addon1">验证码：{$yzm}</span>
+                    <input type="text" class="form-control" name="yzm" placeholder="请输入验证码" aria-describedby="sizing-addon1">
 
           </div>
           <div style="margin: 10px">
                     <button type="submit" class="btn btn-default">登录</button>
-                    <button type="submit" class="btn btn-default">重置</button>
+              		&nbsp;&nbsp;<a id="register">还没有账号？快去注册</a>
           </div>
       </form>
   </div>

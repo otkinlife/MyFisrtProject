@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-22 03:31:37
+<?php /* Smarty version 3.1.27, created on 2015-10-26 09:10:31
          compiled from "C:\wamp\www\templates\register.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:277685628589948efc0_30229786%%*/
+/*%%SmartyHeaderCode:15873562dee077ded98_84003493%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,24 +9,24 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '354d69dbe0c486a9c8682354e15b94806dfdf964' => 
     array (
       0 => 'C:\\wamp\\www\\templates\\register.tpl',
-      1 => 1445484691,
+      1 => 1445823304,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '277685628589948efc0_30229786',
+  'nocache_hash' => '15873562dee077ded98_84003493',
   'variables' => 
   array (
     'data' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_562858994d95f2_31864670',
+  'unifunc' => 'content_562dee079c02f2_21230507',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_562858994d95f2_31864670')) {
-function content_562858994d95f2_31864670 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_562dee079c02f2_21230507')) {
+function content_562dee079c02f2_21230507 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '277685628589948efc0_30229786';
+$_smarty_tpl->properties['nocache_hash'] = '15873562dee077ded98_84003493';
 ?>
 <!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
@@ -42,8 +42,10 @@ $_smarty_tpl->properties['nocache_hash'] = '277685628589948efc0_30229786';
 >
     <?php echo '<script'; ?>
 >
+        <?php if ($_smarty_tpl->tpl_vars['data']->value['code'] != '') {?>
     	alert('<?php echo $_smarty_tpl->tpl_vars['data']->value['message'];?>
 ');
+        <?php }?>
     <?php echo '</script'; ?>
 >
 </head>

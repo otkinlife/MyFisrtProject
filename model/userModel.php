@@ -32,7 +32,7 @@ class userModel extends SqlHelper
     //根据用户用户id，获取该用户资料
     public function  getContentById($userid){
         $sql = "select * from user where user_id= '".$userid."'";
-        $result = $this->sqlArray();
+        $result = $this->sqlArray($sql);
         return $result;
     }
 }

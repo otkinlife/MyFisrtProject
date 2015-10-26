@@ -1,34 +1,32 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-26 10:00:53
-         compiled from "C:\wamp\www\templates\index.tpl" */ ?>
+<?php /* Smarty version 3.1.27, created on 2015-10-26 09:56:37
+         compiled from "C:\wamp\www\templates\detail.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:22674562df9d5b29cc8_56228416%%*/
+/*%%SmartyHeaderCode:9972562df8d508fad4_88171651%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    'cf84dd365989a30db2ab73eacd04c6a14af5d71e' => 
+    '481c9068197f7f93422d734dd906381dc3f41d79' => 
     array (
-      0 => 'C:\\wamp\\www\\templates\\index.tpl',
-      1 => 1445853649,
+      0 => 'C:\\wamp\\www\\templates\\detail.tpl',
+      1 => 1445853395,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '22674562df9d5b29cc8_56228416',
+  'nocache_hash' => '9972562df8d508fad4_88171651',
   'variables' => 
   array (
     'username' => 0,
-    'data' => 0,
-    'thing' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_562df9d5b86320_82092333',
+  'unifunc' => 'content_562df8d50eae89_61378605',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_562df9d5b86320_82092333')) {
-function content_562df9d5b86320_82092333 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_562df8d50eae89_61378605')) {
+function content_562df8d50eae89_61378605 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '22674562df9d5b29cc8_56228416';
+$_smarty_tpl->properties['nocache_hash'] = '9972562df8d508fad4_88171651';
 ?>
 <html>
 <head>
@@ -76,49 +74,24 @@ $_smarty_tpl->properties['nocache_hash'] = '22674562df9d5b29cc8_56228416';
 				</h5>
 			</div>
 			<div class="jumbotron well">
-				<h1>
-					快来跟我们一起围观
-				</h1>
-				<p class="lead">
-					世界那么大，我想去看看！这么多趣事等着你去发现，快乐就是这么简单~！
-				</p>
-				
+				趣事一
 			</div>
 			<div class="row marketing">
 			</div>
 			
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title">
-						趣事广场
-					</h3>
+					<a id="modal-90773" href="#modal-container-90773" role="button" class="btn" data-toggle="modal">评论</a>
 				</div>
 				<div class="panel-body">
-				<?php
-$_from = $_smarty_tpl->tpl_vars['data']->value;
-if (!is_array($_from) && !is_object($_from)) {
-settype($_from, 'array');
-}
-$_smarty_tpl->tpl_vars['thing'] = new Smarty_Variable;
-$_smarty_tpl->tpl_vars['thing']->_loop = false;
-foreach ($_from as $_smarty_tpl->tpl_vars['thing']->value) {
-$_smarty_tpl->tpl_vars['thing']->_loop = true;
-$foreach_thing_Sav = $_smarty_tpl->tpl_vars['thing'];
-?>
+				
 					<blockquote>
-						<p>
-							<?php echo $_smarty_tpl->tpl_vars['thing']->value['2'];?>
-
-						</p> 
+						111111111111
 					</blockquote>
-					<a>评论数 <span class="badge">50</span></a>
-					<a href="/Base/rooter.php?rooter=Thing/showDetail" role="button" class="btn">查看详情</a>
-					<a id="modal-90773" href="#modal-container-90773" role="button" class="btn" data-toggle="modal">发表评论</a>
+				
+					
 					<hr/>
-				<?php
-$_smarty_tpl->tpl_vars['thing'] = $foreach_thing_Sav;
-}
-?>
+			
 					<div id="modal-container-90773" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						<div class="modal-header">
 							 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>

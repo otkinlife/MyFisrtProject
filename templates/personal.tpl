@@ -9,6 +9,15 @@
 		alert('{$data.message}');
 	{/if}
 </script>
+<script>
+	$(function(){
+		$("#logout").click(function(){
+			if(confirm("真的要离开吗 ？")){
+				window.location.href = "/Base/rooter.php?rooter=User/login";
+			}		
+		});
+	})
+</script>
 </head>
 <body>
 <div class="container-fluid">
@@ -23,7 +32,7 @@
 						<a href="/Base/rooter.php?rooter=User/showperson">个人</a>
 					</li>
 					<li>
-						<a href="#">联系我</a>
+						<a id="logout">登出</a>
 					</li>
 				</ul>
 				<h5 class="text-muted">
@@ -74,14 +83,14 @@
 						</div>
 					</form>
 				<div class="panel-body">
-					{foreach from=$data item=thing}
+					{foreach from=$res item=thing}
 						<blockquote>
 							<p>
 								{$thing['2']}
 							</p> 
 						</blockquote>
 						<a>评论数 <span class="badge">50</span></a>
-						<a role="button" class="btn">查看详情</a>
+						<a href="/Base/rooter.php?rooter=Thing/showDetail" role="button" class="btn">查看详情</a>
 						<hr/>
 					{/foreach}
 				</div>
@@ -115,20 +124,19 @@
 			</div>
 		</div>
 		<div class="span4">
-			
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<a class="panel-title">
-						我的资料
-					</h3>
-				</div>
-				<div class="panel-body">
-					
-				</div>
-				<div class="panel-footer">
-					Panel footer
-				</div>
-			</div>
+			<a href="#" class="list-group-item active">
+			   	<img src='../upload/test.jpg' width="50px;" height="50px;">&nbsp;&nbsp;<span>我的资料</span>
+			</a>
+			<a class="list-group-item">
+				我的id：{$person['0']['0']}
+			</a>
+			<a class="list-group-item">
+				我的邮箱：{$person['0']['1']}
+			</a>
+			<a href="#" class="list-group-item">
+				我的昵称：{$person['0']['2']}
+			</a>
+			<a href="#" class="list-group-item">共发表了12条趣事</a>
 		</div>
 	</div>
 </div>
