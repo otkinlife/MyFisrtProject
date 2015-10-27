@@ -4,6 +4,9 @@
 <script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-ui"></script>
 <link href="http://www.francescomalagrino.com/BootstrapPageGenerator/3/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">
 <script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/bootstrap.min.js"></script>
+<link href="../other/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+<script src="../other/js/fileinput.js" type="text/javascript"></script>
+<script src="../other/js/fileinput_locale_zh.js" type="text/javascript"></script>
 <script>
 	{if $data.code!=""}
 		alert('{$data.message}');
@@ -17,6 +20,28 @@
 			}		
 		});
 	})
+	
+function UploadSpecialRecommendPic() {
+	$.ajaxFileUpload({
+		url : '/GZZSServer/s_util/uploadSpecialRecommendPic.action',
+		secureuri : false,
+		fileElementId : 'specialrecommendfile',
+		dataType : 'json',
+		success : function(d, status) {
+			var data = eval('(' + d + ')');
+			alert(data.msg);
+			if (data.flag == 1) {
+				$("#SpecialTopicPicShow").attr("src", data.path);
+				$("#specialRecommendPic").val(data.picName);
+			}
+		},
+		error : function(data, status, e) {
+			alert(e);
+		}
+	});
+}
+
+	
 </script>
 </head>
 <body>
@@ -128,6 +153,10 @@
 			   	<img src='../upload/test.jpg' width="50px;" height="50px;">&nbsp;&nbsp;<span>我的资料</span>
 			</a>
 			<a class="list-group-item">
+				<span role="button" class="btn">修改资料</span>
+				<span id="modal-90773" href="#modal-container-90771" role="button" class="btn" data-toggle="modal">更换头像</span>
+			</a>
+			<a class="list-group-item">
 				我的id：{$person['0']['0']}
 			</a>
 			<a class="list-group-item">
@@ -138,7 +167,47 @@
 			</a>
 			<a href="#" class="list-group-item">共发表了12条趣事</a>
 		</div>
+		<form action="/Base/rooter.php?rooter=User/uploadImg" method="post"
+			  enctype="multipart/form-data">
+			<div id="modal-container-90771" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-header">
+					 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h3 id="myModalLabel">
+						选一张漂亮的图片吧
+					</h3>
+				</div>
+				<div class="modal-body">
+					
+						  <div class="form-group">
+		                    <label>Preview File Icon</label>
+		                    <input name="file" id="file-3" type="file" multiple=true>
+		                </div>
+				</div>
+				 
+				<div class="modal-footer">
+					 <button class="btn" data-dismiss="modal" aria-hidden="true">不改了</button>
+					 <button type="submit" class="btn btn-primary">点击修改</button>
+				</div>
+			</div>
+		</form>
 	</div>
 </div>
 </body>
 </html>
+<script>
+	$("#file-3").fileinput({
+			showUpload: false,
+			showCaption: false,
+			browseClass: "btn btn-primary btn-lg",
+			fileType: "any",
+	        previewFileIcon: "<i class='glyphicon glyphicon-king'></i>"
+		});
+    $(document).ready(function() {
+        $("#test-upload").fileinput({
+            'showPreview' : false,
+            'allowedFileExtensions' : ['jpg', 'png','gif'],
+            'elErrorContainer': '#errorBlock'
+        });
+ 
+    });
+</script>
