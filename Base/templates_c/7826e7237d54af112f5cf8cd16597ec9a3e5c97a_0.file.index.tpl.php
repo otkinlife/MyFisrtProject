@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-25 14:05:47
+<?php /* Smarty version 3.1.27, created on 2015-10-27 14:57:59
          compiled from "D:\wamp\www\templates\index.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:13367562cd3ab9e8239_34748776%%*/
+/*%%SmartyHeaderCode:25839562f82e727b6d9_61365453%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,24 +9,26 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7826e7237d54af112f5cf8cd16597ec9a3e5c97a' => 
     array (
       0 => 'D:\\wamp\\www\\templates\\index.tpl',
-      1 => 1445778344,
+      1 => 1445954261,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '13367562cd3ab9e8239_34748776',
+  'nocache_hash' => '25839562f82e727b6d9_61365453',
   'variables' => 
   array (
-    'useremail' => 0,
+    'username' => 0,
+    'data' => 0,
+    'thing' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_562cd3aba217c2_37680299',
+  'unifunc' => 'content_562f82e72c7101_78953534',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_562cd3aba217c2_37680299')) {
-function content_562cd3aba217c2_37680299 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_562f82e72c7101_78953534')) {
+function content_562f82e72c7101_78953534 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '13367562cd3ab9e8239_34748776';
+$_smarty_tpl->properties['nocache_hash'] = '25839562f82e727b6d9_61365453';
 ?>
 <html>
 <head>
@@ -40,6 +42,17 @@ $_smarty_tpl->properties['nocache_hash'] = '13367562cd3ab9e8239_34748776';
 <?php echo '<script'; ?>
  type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/bootstrap.min.js"><?php echo '</script'; ?>
 >
+<?php echo '<script'; ?>
+>
+	$(function(){
+		$("#logout").click(function(){
+			if(confirm("真的要离开吗 ？")){
+				window.location.href = "/Base/rooter.php?rooter=User/login";
+			}		
+		});
+	})
+<?php echo '</script'; ?>
+>
 </head>
 <body>
 <div class="container-fluid">
@@ -48,18 +61,18 @@ $_smarty_tpl->properties['nocache_hash'] = '13367562cd3ab9e8239_34748776';
 			<div class="header">
 				<ul class="nav nav-pills pull-right">
 					<li class="active">
-						<a href="#">主页</a>
+						<a href="/Base/rooter.php?rooter=User/index">主页</a>
 					</li>
 					<li>
 						<a href="/Base/rooter.php?rooter=User/showperson">个人</a>
 					</li>
 					<li>
-						<a href="#">联系我</a>
+						<a id="logout">登出</a>
 					</li>
 				</ul>
 				<h5 class="text-muted">
-					欢迎您<?php echo $_smarty_tpl->tpl_vars['useremail']->value;?>
-
+					欢迎您:<b><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+</b>
 				</h5>
 			</div>
 			<div class="jumbotron well">
@@ -81,13 +94,31 @@ $_smarty_tpl->properties['nocache_hash'] = '13367562cd3ab9e8239_34748776';
 					</h3>
 				</div>
 				<div class="panel-body">
+				<?php
+$_from = $_smarty_tpl->tpl_vars['data']->value;
+if (!is_array($_from) && !is_object($_from)) {
+settype($_from, 'array');
+}
+$_smarty_tpl->tpl_vars['thing'] = new Smarty_Variable;
+$_smarty_tpl->tpl_vars['thing']->_loop = false;
+foreach ($_from as $_smarty_tpl->tpl_vars['thing']->value) {
+$_smarty_tpl->tpl_vars['thing']->_loop = true;
+$foreach_thing_Sav = $_smarty_tpl->tpl_vars['thing'];
+?>
 					<blockquote>
 						<p>
-							github是一个全球化的开源社区.
-						</p> <small>关键词 <cite>开源</cite></small>
+							<?php echo $_smarty_tpl->tpl_vars['thing']->value['2'];?>
+
+						</p> 
 					</blockquote>
 					<a>评论数 <span class="badge">50</span></a>
+					<a href="/Base/rooter.php?rooter=Thing/showDetail" role="button" class="btn">查看详情</a>
 					<a id="modal-90773" href="#modal-container-90773" role="button" class="btn" data-toggle="modal">发表评论</a>
+					<hr/>
+				<?php
+$_smarty_tpl->tpl_vars['thing'] = $foreach_thing_Sav;
+}
+?>
 					<div id="modal-container-90773" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						<div class="modal-header">
 							 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>

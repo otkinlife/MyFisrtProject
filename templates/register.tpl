@@ -10,6 +10,7 @@
         {if $data.code!=""}
     	alert('{$data.message}');
         {/if}
+
     </script>
 </head>
 <body class="container">

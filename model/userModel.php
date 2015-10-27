@@ -35,4 +35,11 @@ class userModel extends SqlHelper
         $result = $this->sqlArray($sql);
         return $result;
     }
+
+    //更改头像
+    public function updateImg($url,$userid){
+        $sql = "UPDATE user SET user_img ='".$url."' where user_id= '".$userid."'";
+        $reslut = $this->sqlBool($sql);
+        return $reslut;
+    }
 }

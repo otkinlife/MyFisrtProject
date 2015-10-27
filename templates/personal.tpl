@@ -11,6 +11,10 @@
 	{if $data.code!=""}
 		alert('{$data.message}');
 	{/if}
+	{if $img.code!=""}
+		alert('{$img.message}');
+		window.location.href = "/Base/rooter.php?rooter=User/showperson";
+	{/if}
 </script>
 <script>
 	$(function(){
@@ -61,7 +65,7 @@ function UploadSpecialRecommendPic() {
 					</li>
 				</ul>
 				<h5 class="text-muted">
-					欢迎您{$username}
+					欢迎您:<b>{$username}</b>
 				</h5>
 
 			</div>
@@ -150,7 +154,7 @@ function UploadSpecialRecommendPic() {
 		</div>
 		<div class="span4">
 			<a href="#" class="list-group-item active">
-			   	<img src='../upload/test.jpg' width="50px;" height="50px;">&nbsp;&nbsp;<span>我的资料</span>
+			   	<img src="{$person['0']['4']}" width="50px;" height="50px;">&nbsp;&nbsp;<span>我的资料</span>
 			</a>
 			<a class="list-group-item">
 				<span role="button" class="btn">修改资料</span>
@@ -160,10 +164,10 @@ function UploadSpecialRecommendPic() {
 				我的id：{$person['0']['0']}
 			</a>
 			<a class="list-group-item">
-				我的邮箱：{$person['0']['1']}
+				我的昵称：{$person['0']['1']}
 			</a>
 			<a href="#" class="list-group-item">
-				我的昵称：{$person['0']['2']}
+				我的邮箱：{$person['0']['2']}
 			</a>
 			<a href="#" class="list-group-item">共发表了12条趣事</a>
 		</div>

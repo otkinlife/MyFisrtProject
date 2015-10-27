@@ -9,6 +9,8 @@
 require_once "../model/userModel.php";
 require_once "../model/thingModel.php";
 require_once '../libs/Smarty.class.php';
+
+define('app_root', 'D:\wamp\www');
 class UserController{
 
     //用户注册显示
@@ -116,22 +118,22 @@ class UserController{
     public function checkUserAction(){
         $smarty = new Smarty();
         $thingmodel = new thingModel();
+        $userModel = new userModel();
         session_start();
         $useremail = empty($_POST['useremail'])?'':$_POST['useremail'];
         $userpwd = empty($_POST['userpwd'])?'':$_POST['userpwd'];
         $fyzm = empty($_POST['yzm'])?'':$_POST['yzm'];
-        $userModel = new userModel();
         $flag = $userModel->getUserByEandP($useremail,$userpwd);
         $yzm = $_SESSION['yzm'];
         $smarty->assign('yzm',$yzm);
         if(strtolower($fyzm) == strtolower($yzm)){
             if($flag['0']['0']){
-                $_SESSION['username']= $flag['0']['2'];
+                $_SESSION['username']= $flag['0']['1'];
                 $_SESSION['userid'] = $flag['0']['0'];
                 $result = $thingmodel->selectAll();
                 //echo $_SESSION['useremail'];exit();
                 $smarty->assign('data',$result);
-                $smarty->assign('username',$flag['0']['2']);
+                $smarty->assign('username',$flag['0']['1']);
                 $smarty->display('../templates/index.tpl');
             }else {
                 $result = array(
@@ -155,30 +157,50 @@ class UserController{
     
     //上传头像
     public function uploadImgAction(){
-       
-            if ($_FILES["file"]["error"] > 0)
+        $smarty = new Smarty();
+        $thingmodel = new thingModel();
+        $usermodel = new userModel();
+        session_start();
+        $username = $_SESSION['username'];
+        $userid = $_SESSION['userid'];
+        $result = $thingmodel->selectById($userid);
+        $person = $usermodel->getContentById($userid);
+
+        if ($_FILES["file"]["error"] > 0)
+        {
+            echo "上传错误: " . $_FILES["file"]["error"] . "<br />";
+        }
+        else
+        {
+            $userModel = new userModel();
+            if (file_exists("upload/" . $_FILES["file"]["name"]))
             {
-                echo "上传错误: " . $_FILES["file"]["error"] . "<br />";
+                echo $_FILES["file"]["name"] . " already exists. ";
             }
             else
             {
-                echo "Upload: " . $_FILES["file"]["name"] . "<br />";
-                echo "Type: " . $_FILES["file"]["type"] . "<br />";
-                echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
-                echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br />";
-        
-                if (file_exists("upload/" . $_FILES["file"]["name"]))
-                {
-                    echo $_FILES["file"]["name"] . " already exists. ";
+                move_uploaded_file($_FILES["file"]["tmp_name"], "../upload/" . $_FILES["file"]["name"]);
+                $url = "../upload/" . $_FILES["file"]["name"];
+                $flag = $userModel->updateImg($url,$userid);
+                if($flag){
+                    $data = array(
+                        'code'=>'000',
+                        'message'=>'恭喜您，修改头像成功'
+                    );
+                }else{
+                    $data = array(
+                        'code'=>'001',
+                        'message'=>'很遗憾，修改头像失败了'
+                    );
                 }
-                else
-                {
-                    move_uploaded_file($_FILES["file"]["tmp_name"],
-                    "../upload/" . $_FILES["file"]["name"]);
-                    echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
-                }
-            } 
-         }
+            }
+        }
+        $smarty->assign('res',$result);
+        $smarty->assign('username',$username);
+        $smarty->assign('img',$data);
+        $smarty->assign('person',$person);
+        $smarty->display('../templates/personal.tpl');
+    }
 
 
 }

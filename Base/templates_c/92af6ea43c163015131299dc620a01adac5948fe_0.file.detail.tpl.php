@@ -1,10 +1,47 @@
+<?php /* Smarty version 3.1.27, created on 2015-10-27 14:58:01
+         compiled from "D:\wamp\www\templates\detail.tpl" */ ?>
+<?php
+/*%%SmartyHeaderCode:31740562f82e9d55036_04027872%%*/
+if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '92af6ea43c163015131299dc620a01adac5948fe' => 
+    array (
+      0 => 'D:\\wamp\\www\\templates\\detail.tpl',
+      1 => 1445954268,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '31740562f82e9d55036_04027872',
+  'variables' => 
+  array (
+    'username' => 0,
+  ),
+  'has_nocache_code' => false,
+  'version' => '3.1.27',
+  'unifunc' => 'content_562f82e9d84b08_52798862',
+),false);
+/*/%%SmartyHeaderCode%%*/
+if ($_valid && !is_callable('content_562f82e9d84b08_52798862')) {
+function content_562f82e9d84b08_52798862 ($_smarty_tpl) {
+
+$_smarty_tpl->properties['nocache_hash'] = '31740562f82e9d55036_04027872';
+?>
 <html>
 <head>
-<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-2.0.0.min.js"></script>
-<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-ui"></script>
+<?php echo '<script'; ?>
+ type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-2.0.0.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-ui"><?php echo '</script'; ?>
+>
 <link href="http://www.francescomalagrino.com/BootstrapPageGenerator/3/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">
-<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/bootstrap.min.js"></script>
-<script>
+<?php echo '<script'; ?>
+ type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+>
 	$(function(){
 		$("#logout").click(function(){
 			if(confirm("真的要离开吗 ？")){
@@ -12,7 +49,8 @@
 			}		
 		});
 	})
-</script>
+<?php echo '</script'; ?>
+>
 </head>
 <body>
 <div class="container-fluid">
@@ -20,7 +58,7 @@
 		<div class="span12">
 			<div class="header">
 				<ul class="nav nav-pills pull-right">
-					<li class="active">
+					<li>
 						<a href="/Base/rooter.php?rooter=User/index">主页</a>
 					</li>
 					<li>
@@ -31,39 +69,29 @@
 					</li>
 				</ul>
 				<h5 class="text-muted">
-					欢迎您:<b>{$username}</b>
+					欢迎您:<b><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+</b>
 				</h5>
 			</div>
 			<div class="jumbotron well">
-				<h1>
-					快来跟我们一起围观
-				</h1>
-				<p class="lead">
-					世界那么大，我想去看看！这么多趣事等着你去发现，快乐就是这么简单~！
-				</p>
-				
+				趣事一
 			</div>
 			<div class="row marketing">
 			</div>
 			
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title">
-						趣事广场
-					</h3>
+					<a id="modal-90773" href="#modal-container-90773" role="button" class="btn" data-toggle="modal">评论</a>
 				</div>
 				<div class="panel-body">
-				{foreach from=$data item=thing}
+				
 					<blockquote>
-						<p>
-							{$thing['2']}
-						</p> 
+						111111111111
 					</blockquote>
-					<a>评论数 <span class="badge">50</span></a>
-					<a href="/Base/rooter.php?rooter=Thing/showDetail" role="button" class="btn">查看详情</a>
-					<a id="modal-90773" href="#modal-container-90773" role="button" class="btn" data-toggle="modal">发表评论</a>
+				
+					
 					<hr/>
-				{/foreach}
+			
 					<div id="modal-container-90773" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						<div class="modal-header">
 							 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -119,4 +147,6 @@
 	</div>
 </div>
 </body>
-</html>
+</html><?php }
+}
+?>

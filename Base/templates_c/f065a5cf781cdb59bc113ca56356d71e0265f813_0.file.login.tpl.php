@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-25 03:38:09
+<?php /* Smarty version 3.1.27, created on 2015-10-27 13:18:48
          compiled from "D:\wamp\www\templates\login.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:24926562c40914adea2_62506837%%*/
+/*%%SmartyHeaderCode:5792562f6ba801cd13_25996831%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,24 +9,25 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f065a5cf781cdb59bc113ca56356d71e0265f813' => 
     array (
       0 => 'D:\\wamp\\www\\templates\\login.tpl',
-      1 => 1445740507,
+      1 => 1445948115,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '24926562c40914adea2_62506837',
+  'nocache_hash' => '5792562f6ba801cd13_25996831',
   'variables' => 
   array (
     'data' => 0,
+    'yzm' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_562c40914e6d48_26079798',
+  'unifunc' => 'content_562f6ba807a549_45746132',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_562c40914e6d48_26079798')) {
-function content_562c40914e6d48_26079798 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_562f6ba807a549_45746132')) {
+function content_562f6ba807a549_45746132 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '24926562c40914adea2_62506837';
+$_smarty_tpl->properties['nocache_hash'] = '5792562f6ba801cd13_25996831';
 ?>
 <!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
@@ -39,6 +40,15 @@ $_smarty_tpl->properties['nocache_hash'] = '24926562c40914adea2_62506837';
 >
     <?php echo '<script'; ?>
  src="../bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+>
+    	$(function(){
+    		$("#register").click(function(){
+    			window.location.href="/Base/rooter.php?rooter=User/showadduser";
+    		});
+    	})
+    <?php echo '</script'; ?>
 >
     <?php if ($_smarty_tpl->tpl_vars['data']->value['code'] != '') {?>
     	<?php echo '<script'; ?>
@@ -71,13 +81,14 @@ $_smarty_tpl->properties['nocache_hash'] = '24926562c40914adea2_62506837';
                     <input type="password" class="form-control" name="userpwd" placeholder="请输入用户密码" aria-describedby="sizing-addon1">
           </div>
           <div class="input-group input-group" style="width: 100%;margin-top: 10px">
-                    <span class="input-group-addon" id="sizing-addon1">验&nbsp;&nbsp;证&nbsp;&nbsp;码</span>
-                    <input type="password" class="form-control" name="username" placeholder="请输入验证码" aria-describedby="sizing-addon1">
+                    <span class="input-group-addon" id="sizing-addon1">验证码：<?php echo $_smarty_tpl->tpl_vars['yzm']->value;?>
+</span>
+                    <input type="text" class="form-control" name="yzm" placeholder="请输入验证码" aria-describedby="sizing-addon1">
 
           </div>
           <div style="margin: 10px">
                     <button type="submit" class="btn btn-default">登录</button>
-                    <button type="submit" class="btn btn-default">重置</button>
+              		&nbsp;&nbsp;<a id="register">还没有账号？快去注册</a>
           </div>
       </form>
   </div>

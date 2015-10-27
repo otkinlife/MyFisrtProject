@@ -20,8 +20,8 @@
 		<div class="span12">
 			<div class="header">
 				<ul class="nav nav-pills pull-right">
-					<li class="active">
-						<a href="#">主页</a>
+					<li>
+						<a href="/Base/rooter.php?rooter=User/index">主页</a>
 					</li>
 					<li>
 						<a href="/Base/rooter.php?rooter=User/showperson">个人</a>
@@ -31,7 +31,7 @@
 					</li>
 				</ul>
 				<h5 class="text-muted">
-					欢迎您{$username}
+					欢迎您:<b>{$username}</b>
 				</h5>
 			</div>
 			<div class="jumbotron well">
