@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-28 03:22:25
+<?php /* Smarty version 3.1.27, created on 2015-10-28 09:42:24
          compiled from "C:\wamp\www\templates\personal.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:2766356303f71aeeb50_99545127%%*/
+/*%%SmartyHeaderCode:2201956309880bb8621_39798311%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f938a580674b7ed31d8b88c2de93f3e696a4575c' => 
     array (
       0 => 'C:\\wamp\\www\\templates\\personal.tpl',
-      1 => 1446002543,
+      1 => 1446025247,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2766356303f71aeeb50_99545127',
+  'nocache_hash' => '2201956309880bb8621_39798311',
   'variables' => 
   array (
     'data' => 0,
@@ -26,13 +26,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_56303f71b93981_03358580',
+  'unifunc' => 'content_56309880c6b830_21304757',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56303f71b93981_03358580')) {
-function content_56303f71b93981_03358580 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56309880c6b830_21304757')) {
+function content_56309880c6b830_21304757 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '2766356303f71aeeb50_99545127';
+$_smarty_tpl->properties['nocache_hash'] = '2201956309880bb8621_39798311';
 ?>
 <html>
 <head>
@@ -262,16 +262,10 @@ $_smarty_tpl->tpl_vars['thing'] = $foreach_thing_Sav;
 				</div>
 				<form action="/Base/rooter.php?rooter=User/updatePerson" method="post">
 					<div class="modal-body">
-	 					<div class="input-group input-group">
-			                <span>用户昵称</span>
-			                <input type="text" class="form-control" name="newname" value="<?php echo $_smarty_tpl->tpl_vars['person']->value['0']['1'];?>
+			                <input type="text" style="height:34px" name="newname" value="<?php echo $_smarty_tpl->tpl_vars['person']->value['0']['1'];?>
+"><br/>
+			                <input type="text" style="height:34px" name="newemail" value="<?php echo $_smarty_tpl->tpl_vars['person']->value['0']['2'];?>
 ">
-			            </div>
-			            <div class="input-group input-group">
-			                <span>用户邮箱</span>
-			                <input type="text" class="form-control" name="newemail" value="<?php echo $_smarty_tpl->tpl_vars['person']->value['0']['2'];?>
-">
-			            </div>				  
 					</div>
 					<div class="modal-footer">
 						 <button class="btn" data-dismiss="modal" aria-hidden="true">不改了</button>

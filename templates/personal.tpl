@@ -190,14 +190,8 @@ function UploadSpecialRecommendPic() {
 				</div>
 				<form action="/Base/rooter.php?rooter=User/updatePerson" method="post">
 					<div class="modal-body">
-	 					<div class="input-group input-group">
-			                <span>用户昵称</span>
-			                <input type="text" class="form-control" name="newname" value="{$person['0']['1']}">
-			            </div>
-			            <div class="input-group input-group">
-			                <span>用户邮箱</span>
-			                <input type="text" class="form-control" name="newemail" value="{$person['0']['2']}">
-			            </div>				  
+			                <input type="text" style="height:34px" name="newname" value="{$person['0']['1']}"><br/>
+			                <input type="text" style="height:34px" name="newemail" value="{$person['0']['2']}">
 					</div>
 					<div class="modal-footer">
 						 <button class="btn" data-dismiss="modal" aria-hidden="true">不改了</button>

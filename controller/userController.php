@@ -218,6 +218,7 @@ class UserController{
         $person = $usermodel->getContentById($userid);
         $update = $usermodel->updatePerson($newname, $newemail, $userid);
         if($update){
+            $_SESSION['username']=$newname;
             $data = array(
                 'code'=>'000',
                 'message'=>'恭喜您，修改资料成功'
