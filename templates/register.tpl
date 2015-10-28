@@ -8,9 +8,19 @@
     <script src="../bootstrap/js/bootstrap.min.js"></script>
     <script>
         {if $data.code!=""}
-    	alert('{$data.message}');
+    		alert('{$data.message}');
         {/if}
-
+    </script>
+    <script>
+    	$(function(){
+    		$("#rp").blur(function(){
+    			if($("#rp").val()==$("#pw").val()){
+    				$("#msg").hide();
+    			}else{
+    				$("#msg").show();
+    			}
+    		});
+    	});
     </script>
 </head>
 <body class="container">
@@ -44,8 +54,13 @@
             </div>
             <div class="input-group input-group" style="width: 50%;margin-top: 10px">
                 <span class="input-group-addon" id="sizing-addon1">用户密码</span>
-                <input type="password" class="form-control" name="userpwd" placeholder="请输入用户密码" aria-describedby="sizing-addon1">
+                <input id ="pw" type="password" class="form-control" name="userpwd" placeholder="请输入用户密码" aria-describedby="sizing-addon1">
             </div>
+            <div class="input-group input-group" style="width: 50%;margin-top: 10px">
+                <span class="input-group-addon" id="sizing-addon1">确认密码</span>
+                <input id="rp" type="password" class="form-control" name="repwd" placeholder="请再次输入用户密码" aria-describedby="sizing-addon1">
+            </div>
+            <span id="msg" style="color: Red; display: none; font-size: 10pt; font-weight: bold; font-family: Andalus;">输入的两次密码不一致!</span>
             <div style="margin: 10px">
                 <button type="submit" class="btn btn-default">注册</button>
                 <button type="buttton" class="btn btn-default">重置</button>

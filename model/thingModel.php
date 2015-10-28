@@ -19,7 +19,7 @@ class thingModel extends SqlHelper
     
     //返回所有趣事
     public function selectAll(){
-        $sql = "select * from qushi_thing";
+        $sql = "select * from qushi_thing order by create_time desc";
         $result = $this->sqlArray($sql);
         //print_r($result);
         return $result;
@@ -27,7 +27,7 @@ class thingModel extends SqlHelper
     
     //根据userid返回趣事
     public function selectById($userid){
-        $sql = "select * from qushi_thing where user_id='".$userid."'";
+        $sql = "select * from qushi_thing where user_id='".$userid."' order by create_time desc";
         $result = $this->sqlArray($sql);
         return $result;
     }

@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-27 10:12:46
+<?php /* Smarty version 3.1.27, created on 2015-10-28 03:22:25
          compiled from "C:\wamp\www\templates\personal.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:24773562f4e1e8452c4_25472595%%*/
+/*%%SmartyHeaderCode:2766356303f71aeeb50_99545127%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,14 +9,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f938a580674b7ed31d8b88c2de93f3e696a4575c' => 
     array (
       0 => 'C:\\wamp\\www\\templates\\personal.tpl',
-      1 => 1445940762,
+      1 => 1446002543,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '24773562f4e1e8452c4_25472595',
+  'nocache_hash' => '2766356303f71aeeb50_99545127',
   'variables' => 
   array (
     'data' => 0,
+    'img' => 0,
+    'update' => 0,
     'username' => 0,
     'res' => 0,
     'thing' => 0,
@@ -24,13 +26,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_562f4e1e8c4b33_81671293',
+  'unifunc' => 'content_56303f71b93981_03358580',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_562f4e1e8c4b33_81671293')) {
-function content_562f4e1e8c4b33_81671293 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56303f71b93981_03358580')) {
+function content_56303f71b93981_03358580 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '24773562f4e1e8452c4_25472595';
+$_smarty_tpl->properties['nocache_hash'] = '2766356303f71aeeb50_99545127';
 ?>
 <html>
 <head>
@@ -56,6 +58,17 @@ $_smarty_tpl->properties['nocache_hash'] = '24773562f4e1e8452c4_25472595';
 	<?php if ($_smarty_tpl->tpl_vars['data']->value['code'] != '') {?>
 		alert('<?php echo $_smarty_tpl->tpl_vars['data']->value['message'];?>
 ');
+		window.location.href = "/Base/rooter.php?rooter=User/showperson";
+	<?php }?>
+	<?php if ($_smarty_tpl->tpl_vars['img']->value['code'] != '') {?>
+		alert('<?php echo $_smarty_tpl->tpl_vars['img']->value['message'];?>
+');
+		window.location.href = "/Base/rooter.php?rooter=User/showperson";
+	<?php }?>
+	<?php if ($_smarty_tpl->tpl_vars['update']->value['code'] != '') {?>
+		alert('<?php echo $_smarty_tpl->tpl_vars['img']->value['message'];?>
+');
+		window.location.href = "/Base/rooter.php?rooter=User/showperson";
 	<?php }?>
 <?php echo '</script'; ?>
 >
@@ -110,8 +123,8 @@ function UploadSpecialRecommendPic() {
 					</li>
 				</ul>
 				<h5 class="text-muted">
-					欢迎您<?php echo $_smarty_tpl->tpl_vars['username']->value;?>
-
+					欢迎您:<b><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+</b>
 				</h5>
 
 			</div>
@@ -158,6 +171,7 @@ function UploadSpecialRecommendPic() {
 						</div>
 					</form>
 				<div class="panel-body">
+				<?php if ($_smarty_tpl->tpl_vars['res']->value != '') {?>
 					<?php
 $_from = $_smarty_tpl->tpl_vars['res']->value;
 if (!is_array($_from) && !is_object($_from)) {
@@ -182,6 +196,9 @@ $foreach_thing_Sav = $_smarty_tpl->tpl_vars['thing'];
 $_smarty_tpl->tpl_vars['thing'] = $foreach_thing_Sav;
 }
 ?>
+				<?php } else { ?>
+					暂时还没有趣事哦，快去发表吧~！
+				<?php }?>
 				</div>
 				<div class="panel-footer">
 					<div class="pagination">
@@ -214,29 +231,58 @@ $_smarty_tpl->tpl_vars['thing'] = $foreach_thing_Sav;
 		</div>
 		<div class="span4">
 			<a href="#" class="list-group-item active">
-			   	<img src='../upload/test.jpg' width="50px;" height="50px;">&nbsp;&nbsp;<span>我的资料</span>
+			   	<img src="<?php echo $_smarty_tpl->tpl_vars['person']->value['0']['4'];?>
+" width="50px;" height="50px;">&nbsp;&nbsp;<span>我的资料</span>
 			</a>
 			<a class="list-group-item">
-				<span role="button" class="btn">修改资料</span>
-				<span id="modal-90773" href="#modal-container-90771" role="button" class="btn" data-toggle="modal">更换头像</span>
+				<span id="modal-90773" href="#modal-container-90771" role="button" class="btn" data-toggle="modal">修改资料</span>
+				<span id="modal-90773" href="#modal-container-90772" role="button" class="btn" data-toggle="modal">更换头像</span>
 			</a>
 			<a class="list-group-item">
 				我的id：<?php echo $_smarty_tpl->tpl_vars['person']->value['0']['0'];?>
 
 			</a>
 			<a class="list-group-item">
-				我的邮箱：<?php echo $_smarty_tpl->tpl_vars['person']->value['0']['1'];?>
+				我的昵称：<?php echo $_smarty_tpl->tpl_vars['person']->value['0']['1'];?>
 
 			</a>
 			<a href="#" class="list-group-item">
-				我的昵称：<?php echo $_smarty_tpl->tpl_vars['person']->value['0']['2'];?>
+				我的邮箱：<?php echo $_smarty_tpl->tpl_vars['person']->value['0']['2'];?>
 
 			</a>
 			<a href="#" class="list-group-item">共发表了12条趣事</a>
 		</div>
+		
+			<div id="modal-container-90771" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-header">
+					 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h3 id="myModalLabel">
+						新名片，新气象~！
+					</h3>
+				</div>
+				<form action="/Base/rooter.php?rooter=User/updatePerson" method="post">
+					<div class="modal-body">
+	 					<div class="input-group input-group">
+			                <span>用户昵称</span>
+			                <input type="text" class="form-control" name="newname" value="<?php echo $_smarty_tpl->tpl_vars['person']->value['0']['1'];?>
+">
+			            </div>
+			            <div class="input-group input-group">
+			                <span>用户邮箱</span>
+			                <input type="text" class="form-control" name="newemail" value="<?php echo $_smarty_tpl->tpl_vars['person']->value['0']['2'];?>
+">
+			            </div>				  
+					</div>
+					<div class="modal-footer">
+						 <button class="btn" data-dismiss="modal" aria-hidden="true">不改了</button>
+						 <button type="submit" class="btn btn-primary">点击修改</button>
+					</div>
+				</form>
+			</div>
+		</form>
 		<form action="/Base/rooter.php?rooter=User/uploadImg" method="post"
 			  enctype="multipart/form-data">
-			<div id="modal-container-90771" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div id="modal-container-90772" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-header">
 					 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 					<h3 id="myModalLabel">
@@ -244,9 +290,8 @@ $_smarty_tpl->tpl_vars['thing'] = $foreach_thing_Sav;
 					</h3>
 				</div>
 				<div class="modal-body">
-					
 						  <div class="form-group">
-		                    <label>Preview File Icon</label>
+		                    <label>选一张</label>
 		                    <input name="file" id="file-3" type="file" multiple=true>
 		                </div>
 				</div>

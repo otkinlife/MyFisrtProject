@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-26 09:56:37
+<?php /* Smarty version 3.1.27, created on 2015-10-28 02:19:31
          compiled from "C:\wamp\www\templates\detail.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:9972562df8d508fad4_88171651%%*/
+/*%%SmartyHeaderCode:9657563030b349d717_90715359%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,24 +9,24 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '481c9068197f7f93422d734dd906381dc3f41d79' => 
     array (
       0 => 'C:\\wamp\\www\\templates\\detail.tpl',
-      1 => 1445853395,
+      1 => 1445996211,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '9972562df8d508fad4_88171651',
+  'nocache_hash' => '9657563030b349d717_90715359',
   'variables' => 
   array (
     'username' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_562df8d50eae89_61378605',
+  'unifunc' => 'content_563030b34dea64_69008636',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_562df8d50eae89_61378605')) {
-function content_562df8d50eae89_61378605 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_563030b34dea64_69008636')) {
+function content_563030b34dea64_69008636 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '9972562df8d508fad4_88171651';
+$_smarty_tpl->properties['nocache_hash'] = '9657563030b349d717_90715359';
 ?>
 <html>
 <head>
@@ -58,8 +58,8 @@ $_smarty_tpl->properties['nocache_hash'] = '9972562df8d508fad4_88171651';
 		<div class="span12">
 			<div class="header">
 				<ul class="nav nav-pills pull-right">
-					<li class="active">
-						<a href="#">主页</a>
+					<li>
+						<a href="/Base/rooter.php?rooter=User/index">主页</a>
 					</li>
 					<li>
 						<a href="/Base/rooter.php?rooter=User/showperson">个人</a>
@@ -69,8 +69,8 @@ $_smarty_tpl->properties['nocache_hash'] = '9972562df8d508fad4_88171651';
 					</li>
 				</ul>
 				<h5 class="text-muted">
-					欢迎您<?php echo $_smarty_tpl->tpl_vars['username']->value;?>
-
+					欢迎您:<b><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+</b>
 				</h5>
 			</div>
 			<div class="jumbotron well">

@@ -202,5 +202,53 @@ class UserController{
         $smarty->display('../templates/personal.tpl');
     }
 
-
+    //更改资料个人
+    public function updatePersonAction(){
+        $smarty = new Smarty();
+        $thingmodel = new thingModel();
+        $usermodel = new userModel();
+        session_start();
+        
+        $username = $_SESSION['username'];
+        $userid = $_SESSION['userid'];
+        
+        $newname = empty($_POST['newname'])?'':$_POST['newname'];
+        $newemail = empty($_POST['newemail'])?'':$_POST['newemail'];
+        $result = $thingmodel->selectById($userid);
+        $person = $usermodel->getContentById($userid);
+        $update = $usermodel->updatePerson($newname, $newemail, $userid);
+        if($update){
+            $data = array(
+                'code'=>'000',
+                'message'=>'恭喜您，修改资料成功'
+            );
+        }else{
+            $data = array(
+                'code'=>'001',
+                'message'=>'很遗憾，修改资料失败了'
+            );
+        }        
+        $smarty->assign('res',$result);
+        $smarty->assign('username',$username);
+        $smarty->assign('data',$data);
+        $smarty->assign('person',$person);
+        $smarty->display('../templates/personal.tpl');
+    }
+    
+    //更改密码
+    public function updatePwdAction(){
+        $smarty = new Smarty();
+        $thingmodel = new thingModel();
+        $usermodel = new userModel();
+        session_start();
+        $username = $_SESSION['username'];
+        $userid = $_SESSION['userid'];
+        $result = $thingmodel->selectById($userid);
+        $person = $usermodel->getContentById($userid);
+        $smarty->assign('res',$result);
+        $smarty->assign('username',$username);
+        $smarty->assign('data','');
+        $smarty->assign('person',$person);
+        $smarty->display('../templates/personal.tpl');
+    }
 }

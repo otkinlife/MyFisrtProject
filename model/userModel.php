@@ -42,4 +42,13 @@ class userModel extends SqlHelper
         $reslut = $this->sqlBool($sql);
         return $reslut;
     }
+    
+    //更改资料
+    public function updatePerson($username,$useremail,$userid){
+        $sql = "update user set user_name='".$username."', user_email='".$useremail.
+        "' where user_id='".$userid."'";
+        //echo $sql; die;
+        $result = $this->sqlBool($sql);
+        return $result;
+    }
 }

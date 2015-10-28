@@ -10,8 +10,13 @@
 <script>
 	{if $data.code!=""}
 		alert('{$data.message}');
+		window.location.href = "/Base/rooter.php?rooter=User/showperson";
 	{/if}
 	{if $img.code!=""}
+		alert('{$img.message}');
+		window.location.href = "/Base/rooter.php?rooter=User/showperson";
+	{/if}
+	{if $update.code!=""}
 		alert('{$img.message}');
 		window.location.href = "/Base/rooter.php?rooter=User/showperson";
 	{/if}
@@ -112,6 +117,7 @@ function UploadSpecialRecommendPic() {
 						</div>
 					</form>
 				<div class="panel-body">
+				{if $res!=""}
 					{foreach from=$res item=thing}
 						<blockquote>
 							<p>
@@ -122,6 +128,9 @@ function UploadSpecialRecommendPic() {
 						<a href="/Base/rooter.php?rooter=Thing/showDetail" role="button" class="btn">查看详情</a>
 						<hr/>
 					{/foreach}
+				{else}
+					暂时还没有趣事哦，快去发表吧~！
+				{/if}
 				</div>
 				<div class="panel-footer">
 					<div class="pagination">
@@ -157,8 +166,8 @@ function UploadSpecialRecommendPic() {
 			   	<img src="{$person['0']['4']}" width="50px;" height="50px;">&nbsp;&nbsp;<span>我的资料</span>
 			</a>
 			<a class="list-group-item">
-				<span role="button" class="btn">修改资料</span>
-				<span id="modal-90773" href="#modal-container-90771" role="button" class="btn" data-toggle="modal">更换头像</span>
+				<span id="modal-90773" href="#modal-container-90771" role="button" class="btn" data-toggle="modal">修改资料</span>
+				<span id="modal-90773" href="#modal-container-90772" role="button" class="btn" data-toggle="modal">更换头像</span>
 			</a>
 			<a class="list-group-item">
 				我的id：{$person['0']['0']}
@@ -171,9 +180,35 @@ function UploadSpecialRecommendPic() {
 			</a>
 			<a href="#" class="list-group-item">共发表了12条趣事</a>
 		</div>
+		
+			<div id="modal-container-90771" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-header">
+					 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h3 id="myModalLabel">
+						新名片，新气象~！
+					</h3>
+				</div>
+				<form action="/Base/rooter.php?rooter=User/updatePerson" method="post">
+					<div class="modal-body">
+	 					<div class="input-group input-group">
+			                <span>用户昵称</span>
+			                <input type="text" class="form-control" name="newname" value="{$person['0']['1']}">
+			            </div>
+			            <div class="input-group input-group">
+			                <span>用户邮箱</span>
+			                <input type="text" class="form-control" name="newemail" value="{$person['0']['2']}">
+			            </div>				  
+					</div>
+					<div class="modal-footer">
+						 <button class="btn" data-dismiss="modal" aria-hidden="true">不改了</button>
+						 <button type="submit" class="btn btn-primary">点击修改</button>
+					</div>
+				</form>
+			</div>
+		</form>
 		<form action="/Base/rooter.php?rooter=User/uploadImg" method="post"
 			  enctype="multipart/form-data">
-			<div id="modal-container-90771" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div id="modal-container-90772" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-header">
 					 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 					<h3 id="myModalLabel">
@@ -181,9 +216,8 @@ function UploadSpecialRecommendPic() {
 					</h3>
 				</div>
 				<div class="modal-body">
-					
 						  <div class="form-group">
-		                    <label>Preview File Icon</label>
+		                    <label>选一张</label>
 		                    <input name="file" id="file-3" type="file" multiple=true>
 		                </div>
 				</div>
