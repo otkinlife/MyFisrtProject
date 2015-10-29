@@ -12,6 +12,9 @@
 			}		
 		});
 	})
+	{if $flag!=""}
+		alert("{$flag.message}");
+	{/if}
 </script>
 </head>
 <body>
@@ -72,18 +75,18 @@
 							</h3>
 						</div>
 						<div class="modal-body">
-							<form role="form">
+						<form method="post" action="/Base/rooter.php?rooter=Comment/addComment">
 							  <div class="form-group">
+							  	<input type="hidden" name="thingid" value="{$thing['0']}" /> 
 							    <label for="name">文本框</label>
-							    <textarea class="form-control" style="width:100%" rows="5"></textarea>
+							    <textarea name="comment" class="form-control" style="width:100%" rows="5"></textarea>
 							  </div>
-							</form>
 							
 						</div>
-						 
 						<div class="modal-footer">
 							 <button class="btn" data-dismiss="modal" aria-hidden="true">取消评论</button> <button class="btn btn-primary">发表评论</button>
 						</div>
+					</form>
 					</div>
 				</div>
 				<div class="panel-footer">

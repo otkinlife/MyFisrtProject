@@ -3,6 +3,8 @@
 
 require '../controller/UserController.php';
 require '../controller/ThingController.php';
+require '../controller/CommentController.php';
+
 $rooter = '';
 if(!empty($_GET['rooter'])){
     $rooter = $_GET['rooter'];

@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-28 01:37:34
+<?php /* Smarty version 3.1.27, created on 2015-10-29 03:05:53
          compiled from "C:\wamp\www\templates\index.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:27012563026de625783_85411974%%*/
+/*%%SmartyHeaderCode:876356318d11b1bf88_15152698%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,26 +9,27 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cf84dd365989a30db2ab73eacd04c6a14af5d71e' => 
     array (
       0 => 'C:\\wamp\\www\\templates\\index.tpl',
-      1 => 1445996211,
+      1 => 1446087945,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '27012563026de625783_85411974',
+  'nocache_hash' => '876356318d11b1bf88_15152698',
   'variables' => 
   array (
+    'flag' => 0,
     'username' => 0,
     'data' => 0,
     'thing' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_563026de683163_80783802',
+  'unifunc' => 'content_56318d11b89862_83194287',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_563026de683163_80783802')) {
-function content_563026de683163_80783802 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56318d11b89862_83194287')) {
+function content_56318d11b89862_83194287 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '27012563026de625783_85411974';
+$_smarty_tpl->properties['nocache_hash'] = '876356318d11b1bf88_15152698';
 ?>
 <html>
 <head>
@@ -51,6 +52,10 @@ $_smarty_tpl->properties['nocache_hash'] = '27012563026de625783_85411974';
 			}		
 		});
 	})
+	<?php if ($_smarty_tpl->tpl_vars['flag']->value != '') {?>
+		alert("<?php echo $_smarty_tpl->tpl_vars['flag']->value['message'];?>
+");
+	<?php }?>
 <?php echo '</script'; ?>
 >
 </head>
@@ -127,18 +132,19 @@ $_smarty_tpl->tpl_vars['thing'] = $foreach_thing_Sav;
 							</h3>
 						</div>
 						<div class="modal-body">
-							<form role="form">
+						<form method="post" action="/Base/rooter.php?rooter=Comment/addComment">
 							  <div class="form-group">
+							  	<input type="hidden" name="thingid" value="<?php echo $_smarty_tpl->tpl_vars['thing']->value['0'];?>
+" /> 
 							    <label for="name">文本框</label>
-							    <textarea class="form-control" style="width:100%" rows="5"></textarea>
+							    <textarea name="comment" class="form-control" style="width:100%" rows="5"></textarea>
 							  </div>
-							</form>
 							
 						</div>
-						 
 						<div class="modal-footer">
 							 <button class="btn" data-dismiss="modal" aria-hidden="true">取消评论</button> <button class="btn btn-primary">发表评论</button>
 						</div>
+					</form>
 					</div>
 				</div>
 				<div class="panel-footer">

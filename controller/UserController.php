@@ -10,7 +10,7 @@ require_once "../model/userModel.php";
 require_once "../model/thingModel.php";
 require_once '../libs/Smarty.class.php';
 
-define('app_root', 'D:\wamp\www');
+//define('app_root', 'D:\wamp\www');
 class UserController{
 
     //用户注册显示
@@ -61,13 +61,14 @@ class UserController{
         return $output;
     }
     //主页显示
-    public function indexAction(){
+    public function indexAction($flag=null){
         $smarty = new Smarty();
         $thingmodel = new thingModel();
         session_start();
         $username = $_SESSION['username'];
         $result = $thingmodel->selectAll();
         $smarty->assign('data',$result);
+        $smarty->assign("flag",$flag);
         $smarty->assign('username',$username);
         $smarty->display('../templates/index.tpl');
     }
