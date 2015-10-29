@@ -8,6 +8,7 @@
 
 require_once "../model/userModel.php";
 require_once "../model/thingModel.php";
+require_once "../model/commentModel.php";
 require_once '../libs/Smarty.class.php';
 
 //define('app_root', 'D:\wamp\www');
@@ -64,9 +65,20 @@ class UserController{
     public function indexAction($flag=null){
         $smarty = new Smarty();
         $thingmodel = new thingModel();
+        $commentmodel = new commentModel();
         session_start();
         $username = $_SESSION['username'];
-        $result = $thingmodel->selectAll();
+        $res = $thingmodel->selectAll();
+        foreach ($res as $var){
+            //echo $var['0'];exit();
+            $num = $commentmodel->getNumByThingId($var['0']);
+            if(empty($num)){
+                $num=0;
+            }
+            $var['num']= $num;
+            $result[] = $var;
+        }
+       // print_r($result);die;
         $smarty->assign('data',$result);
         $smarty->assign("flag",$flag);
         $smarty->assign('username',$username);
@@ -233,23 +245,6 @@ class UserController{
         $smarty->assign('res',$result);
         $smarty->assign('username',$username);
         $smarty->assign('data',$data);
-        $smarty->assign('person',$person);
-        $smarty->display('../templates/personal.tpl');
-    }
-    
-    //更改密码
-    public function updatePwdAction(){
-        $smarty = new Smarty();
-        $thingmodel = new thingModel();
-        $usermodel = new userModel();
-        session_start();
-        $username = $_SESSION['username'];
-        $userid = $_SESSION['userid'];
-        $result = $thingmodel->selectById($userid);
-        $person = $usermodel->getContentById($userid);
-        $smarty->assign('res',$result);
-        $smarty->assign('username',$username);
-        $smarty->assign('data','');
         $smarty->assign('person',$person);
         $smarty->display('../templates/personal.tpl');
     }

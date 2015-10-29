@@ -59,10 +59,10 @@
 				{foreach from=$data item=thing}
 					<blockquote>
 						<p>
-							{$thing['2']}
+							{$thing['0']}:{$thing['2']}
 						</p> 
 					</blockquote>
-					<a>评论数 <span class="badge">50</span></a>
+					<a>评论数 <span class="badge">{$thing.num}</span></a>
 					<a href="/Base/rooter.php?rooter=Thing/showDetail" role="button" class="btn">查看详情</a>
 					<a id="modal-90773" href="#modal-container-90773" role="button" class="btn" data-toggle="modal">发表评论</a>
 					<hr/>
@@ -81,13 +81,14 @@
 							    <label for="name">文本框</label>
 							    <textarea name="comment" class="form-control" style="width:100%" rows="5"></textarea>
 							  </div>
-							
+								
 						</div>
 						<div class="modal-footer">
 							 <button class="btn" data-dismiss="modal" aria-hidden="true">取消评论</button> <button class="btn btn-primary">发表评论</button>
 						</div>
-					</form>
+						</form>
 					</div>
+				
 				</div>
 				<div class="panel-footer">
 					<div class="pagination">

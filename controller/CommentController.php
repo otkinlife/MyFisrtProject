@@ -10,7 +10,7 @@ class CommentController{
         $userid = $_SESSION['userid'];
         $thingid = empty($_POST['thingid'])?'':$_POST['thingid'];
         $comment = empty($_POST['comment'])?'':$_POST['comment'];
-        //echo $userid."  ".$thingid."   ".$comment;
+        //echo $userid."  ".$thingid."   ".$comment;die;
         $userController = new UserController();
         $model = new commentModel();
         $flag = $model->addComment($userid, $thingid, $comment);

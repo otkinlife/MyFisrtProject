@@ -12,4 +12,11 @@ class commentModel extends SqlHelper{
         $result = $this->sqlBool($sql);
         return $result;
     }
+    
+    //获取评论数
+    public function  getNumByThingId($thingid){
+        $sql = "select * from qushi_comment where thing_id='".$thingid."'";
+        $result = $this->sqlRow($sql);
+        return $result;
+    }
 }
