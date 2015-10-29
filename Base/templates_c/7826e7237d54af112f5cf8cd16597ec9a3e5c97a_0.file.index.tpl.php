@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-27 14:57:59
+<?php /* Smarty version 3.1.27, created on 2015-10-29 16:44:46
          compiled from "D:\wamp\www\templates\index.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:25839562f82e727b6d9_61365453%%*/
+/*%%SmartyHeaderCode:1740056323eeeceb6f6_22846160%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,26 +9,27 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7826e7237d54af112f5cf8cd16597ec9a3e5c97a' => 
     array (
       0 => 'D:\\wamp\\www\\templates\\index.tpl',
-      1 => 1445954261,
+      1 => 1446133461,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '25839562f82e727b6d9_61365453',
+  'nocache_hash' => '1740056323eeeceb6f6_22846160',
   'variables' => 
   array (
+    'flag' => 0,
     'username' => 0,
     'data' => 0,
     'thing' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_562f82e72c7101_78953534',
+  'unifunc' => 'content_56323eeed64269_98933203',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_562f82e72c7101_78953534')) {
-function content_562f82e72c7101_78953534 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56323eeed64269_98933203')) {
+function content_56323eeed64269_98933203 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '25839562f82e727b6d9_61365453';
+$_smarty_tpl->properties['nocache_hash'] = '1740056323eeeceb6f6_22846160';
 ?>
 <html>
 <head>
@@ -51,6 +52,13 @@ $_smarty_tpl->properties['nocache_hash'] = '25839562f82e727b6d9_61365453';
 			}		
 		});
 	})
+	function cl(){
+		$("#modal-90773").nodeName=""
+	}
+	<?php if ($_smarty_tpl->tpl_vars['flag']->value != '') {?>
+		alert("<?php echo $_smarty_tpl->tpl_vars['flag']->value['message'];?>
+");
+	<?php }?>
 <?php echo '</script'; ?>
 >
 </head>
@@ -111,9 +119,15 @@ $foreach_thing_Sav = $_smarty_tpl->tpl_vars['thing'];
 
 						</p> 
 					</blockquote>
-					<a>评论数 <span class="badge">50</span></a>
+					<a>评论数 <span class="badge"><?php echo $_smarty_tpl->tpl_vars['thing']->value['num'];?>
+</span></a>
 					<a href="/Base/rooter.php?rooter=Thing/showDetail" role="button" class="btn">查看详情</a>
-					<a id="modal-90773" href="#modal-container-90773" role="button" class="btn" data-toggle="modal">发表评论</a>
+					<a id="modal-90773" href="#modal-container-90773" role="button"
+
+					   class="btn" data-toggle="modal" data-js="<?php echo $_smarty_tpl->tpl_vars['thing']->value['0'];?>
+">
+						发表评论
+					</a>
 					<hr/>
 				<?php
 $_smarty_tpl->tpl_vars['thing'] = $foreach_thing_Sav;
@@ -126,20 +140,23 @@ $_smarty_tpl->tpl_vars['thing'] = $foreach_thing_Sav;
 								写写你的看法~
 							</h3>
 						</div>
-						<div class="modal-body">
-							<form role="form">
-							  <div class="form-group">
-							    <label for="name">文本框</label>
-							    <textarea class="form-control" style="width:100%" rows="5"></textarea>
+						<form method="post" action="/Base/rooter.php?rooter=Comment/addComment">
+							<div class="modal-body">
+							<div class="form-group">
+							  	<input type="hidden" name="thingid" id="thingid" value="<?php echo $_smarty_tpl->tpl_vars['thing']->value['0'];?>
+" />
+							    <label for="name" id="aaa">文本框</label>
+							    <textarea name="comment" class="form-control" style="width:100%" rows="5"></textarea>
 							  </div>
-							</form>
-							
-						</div>
-						 
+
+							</div>
 						<div class="modal-footer">
-							 <button class="btn" data-dismiss="modal" aria-hidden="true">取消评论</button> <button class="btn btn-primary">发表评论</button>
+							 <button class="btn" data-dismiss="modal" aria-hidden="true">取消评论</button>
+							 <button type="submit" class="btn btn-primary">发表评论</button>
 						</div>
+						</form>
 					</div>
+				
 				</div>
 				<div class="panel-footer">
 					<div class="pagination">
@@ -173,6 +190,15 @@ $_smarty_tpl->tpl_vars['thing'] = $foreach_thing_Sav;
 		</div>
 	</div>
 </div>
+<?php echo '<script'; ?>
+>
+	$(".btn").click(function(){
+		$("#modal-container-90773").attr('aria-hidden',false);
+		$("#thingid").attr('value',$(this).attr("data-js"));
+	})
+
+<?php echo '</script'; ?>
+>
 </body>
 </html><?php }
 }

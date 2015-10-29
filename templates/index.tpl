@@ -12,6 +12,9 @@
 			}		
 		});
 	})
+	function cl(){
+		$("#modal-90773").nodeName=""
+	}
 	{if $flag!=""}
 		alert("{$flag.message}");
 	{/if}
@@ -59,12 +62,16 @@
 				{foreach from=$data item=thing}
 					<blockquote>
 						<p>
-							{$thing['0']}:{$thing['2']}
+							{$thing['2']}
 						</p> 
 					</blockquote>
 					<a>评论数 <span class="badge">{$thing.num}</span></a>
 					<a href="/Base/rooter.php?rooter=Thing/showDetail" role="button" class="btn">查看详情</a>
-					<a id="modal-90773" href="#modal-container-90773" role="button" class="btn" data-toggle="modal">发表评论</a>
+					<a id="modal-90773" href="#modal-container-90773" role="button"
+
+					   class="btn" data-toggle="modal" data-js="{$thing['0']}">
+						发表评论
+					</a>
 					<hr/>
 				{/foreach}
 					<div id="modal-container-90773" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -74,17 +81,18 @@
 								写写你的看法~
 							</h3>
 						</div>
-						<div class="modal-body">
 						<form method="post" action="/Base/rooter.php?rooter=Comment/addComment">
-							  <div class="form-group">
-							  	<input type="hidden" name="thingid" value="{$thing['0']}" /> 
-							    <label for="name">文本框</label>
+							<div class="modal-body">
+							<div class="form-group">
+							  	<input type="hidden" name="thingid" id="thingid" value="{$thing['0']}" />
+							    <label for="name" id="aaa">文本框</label>
 							    <textarea name="comment" class="form-control" style="width:100%" rows="5"></textarea>
 							  </div>
-								
-						</div>
+
+							</div>
 						<div class="modal-footer">
-							 <button class="btn" data-dismiss="modal" aria-hidden="true">取消评论</button> <button class="btn btn-primary">发表评论</button>
+							 <button class="btn" data-dismiss="modal" aria-hidden="true">取消评论</button>
+							 <button type="submit" class="btn btn-primary">发表评论</button>
 						</div>
 						</form>
 					</div>
@@ -122,5 +130,12 @@
 		</div>
 	</div>
 </div>
+<script>
+	$(".btn").click(function(){
+		$("#modal-container-90773").attr('aria-hidden',false);
+		$("#thingid").attr('value',$(this).attr("data-js"));
+	})
+
+</script>
 </body>
 </html>

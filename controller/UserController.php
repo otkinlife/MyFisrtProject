@@ -78,7 +78,7 @@ class UserController{
             $var['num']= $num;
             $result[] = $var;
         }
-       // print_r($result);die;
+//        print_r($result);die;
         $smarty->assign('data',$result);
         $smarty->assign("flag",$flag);
         $smarty->assign('username',$username);
