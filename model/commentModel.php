@@ -19,4 +19,12 @@ class commentModel extends SqlHelper{
         $result = $this->sqlRow($sql);
         return $result;
     }
+    
+    //根据thingid获取评论
+    public function getContentByThingId($thingid){
+        $sql = "select * from qushi_comment where thing_id='".$thingid."'";
+        $result = $this->sqlArray($sql);
+        //print_r($result);die;
+        return $result;
+    }
 }

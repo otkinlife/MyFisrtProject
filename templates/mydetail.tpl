@@ -45,7 +45,7 @@
 			
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<a id="modal-90773" href="#modal-container-90773" role="button" class="btn" data-toggle="modal">评论</a>
+					相关评论
 				</div>
 				<div class="panel-body">
 				{foreach from=$comment item=commentitem}
@@ -56,27 +56,6 @@
 					</blockquote>
 					<hr/>
 				{/foreach}
-					<div id="modal-container-90773" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-						<form method="post" action="/Base/rooter.php?rooter=Comment/addCommentToDetail">
-							<div class="modal-header">
-								 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-								<h3 id="myModalLabel">
-									写写你的看法~
-								</h3>
-							</div>
-							<div class="modal-body">
-								  <div class="form-group">
-								  	<input type="hidden" name="thingid" id="thingid" value="{$thingid}" />
-								    <label for="name">文本框</label>
-								    <textarea class="form-control" name="comment" style="width:100%" rows="5"></textarea>
-								  </div>
-							</div>
-							 
-							<div class="modal-footer">
-								 <button class="btn" data-dismiss="modal" aria-hidden="true">取消评论</button> <button class="btn btn-primary">发表评论</button>
-							</div>
-						</form>
-					</div>
 				</div>
 				<div class="panel-footer">
 					<div class="pagination">

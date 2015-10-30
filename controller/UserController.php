@@ -15,29 +15,19 @@ require_once '../libs/Smarty.class.php';
 class UserController{
 
     //用户注册显示
-    public function showadduserAction(){
+    public function showadduserAction($flag=null){
         $smarty = new Smarty();
-        $result = array(
-            'code' => '',
-            'message' => '',
-            'res' => ''
-        );
-        $smarty->assign('data',$result);
+        $smarty->assign('data',$flag);
         $smarty->display('../templates/register.tpl');
     }
     //用户登录显示
-    public function loginAction(){ 
+    public function loginAction($flag = null){ 
         session_start();
         $smarty = new Smarty();
         $yzm = $this->yzm(4);
-        $result = array(
-            'code' => '',
-            'message' => '',
-            'res' => ''
-        );
         $_SESSION['yzm']=$yzm;
         $smarty->assign('yzm',$yzm);
-        $smarty->assign('data',$result);
+        $smarty->assign('data',$flag);
         $smarty->display('../templates/login.tpl');
     }
     
@@ -62,13 +52,15 @@ class UserController{
         return $output;
     }
     //主页显示
-    public function indexAction($flag=null){
+    public function indexAction($flag=null,$page){
+        //$page='2';
+        $pagesize='5';
         $smarty = new Smarty();
         $thingmodel = new thingModel();
         $commentmodel = new commentModel();
         session_start();
         $username = $_SESSION['username'];
-        $res = $thingmodel->selectAll();
+        $res = $thingmodel->selectAll($page,$pagesize);
         foreach ($res as $var){
             //echo $var['0'];exit();
             $num = $commentmodel->getNumByThingId($var['0']);
@@ -123,39 +115,33 @@ class UserController{
                 'res' => $flag
             );
         }
-        $smarty->assign('data',$result);
-        $smarty->display('../templates/register.tpl');
+        $this->showadduserAction($result);
     }
 
     //检查用户
     public function checkUserAction(){
+        $useremail = empty($_POST['useremail'])?'':$_POST['useremail'];
+        $userpwd = empty($_POST['userpwd'])?'':$_POST['userpwd'];
+        $fyzm = empty($_POST['yzm'])?'':$_POST['yzm'];
+        
+        
         $smarty = new Smarty();
         $thingmodel = new thingModel();
         $userModel = new userModel();
         session_start();
-        $useremail = empty($_POST['useremail'])?'':$_POST['useremail'];
-        $userpwd = empty($_POST['userpwd'])?'':$_POST['userpwd'];
-        $fyzm = empty($_POST['yzm'])?'':$_POST['yzm'];
         $flag = $userModel->getUserByEandP($useremail,$userpwd);
         $yzm = $_SESSION['yzm'];
         $smarty->assign('yzm',$yzm);
         if(strtolower($fyzm) == strtolower($yzm)){
             if($flag['0']['0']){
-                $_SESSION['username']= $flag['0']['1'];
                 $_SESSION['userid'] = $flag['0']['0'];
-                $result = $thingmodel->selectAll();
-                //echo $_SESSION['useremail'];exit();
-                $smarty->assign('data',$result);
-                $smarty->assign('username',$flag['0']['1']);
-                $smarty->display('../templates/index.tpl');
+                $this->indexAction();
             }else {
                 $result = array(
                     'code' => '001',
                     'message' => '登录失败，用户名或密码不正确',
                     'res' => $flag
                 );
-                $smarty->assign('data',$result);
-                $smarty->display('../templates/login.tpl');
             }  
         }else {
             $result = array(
@@ -163,8 +149,7 @@ class UserController{
                 'message' => '登录失败，验证码不正确',
                 'res' => $flag
             );
-            $smarty->assign('data',$result);
-            $smarty->display('../templates/login.tpl');
+            $this->loginAction($result);
         }
     }
     

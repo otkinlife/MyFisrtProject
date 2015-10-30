@@ -1,5 +1,6 @@
 <?php
 require_once "../model/thingModel.php";
+require_once '../model/commentModel.php';
 require_once '../libs/Smarty.class.php';
 /**
  * Created by PhpStorm.
@@ -42,12 +43,38 @@ class ThingController
     }
     
     //显示详情页
-    public function showDetailAction(){
+    public function showDetailAction($thingid,$flag=null){
         $smarty = new Smarty();
+        $thingmodel = new thingModel();
+        $commentmodel = new commentModel();
         session_start();
+        $qushi = $thingmodel->getByThingId($thingid);
+        $comment = $commentmodel->getContentByThingId($thingid);
+        //print_r($comment);die;
         $username = $_SESSION['username'];
-        $smarty->assign('username',$username);  
+        $smarty->assign('username',$username); 
+        $smarty->assign('thingid',$thingid); 
+        $smarty->assign('comment',$comment);
+        $smarty->assign('flag',$flag);
+        $smarty->assign('qushi',$qushi);
         $smarty->display('../templates/detail.tpl');
     }
     
+    //显示详情页
+    public function showMyDetailAction($thingid,$flag=null){
+        $smarty = new Smarty();
+        $thingmodel = new thingModel();
+        $commentmodel = new commentModel();
+        session_start();
+        $qushi = $thingmodel->getByThingId($thingid);
+        $comment = $commentmodel->getContentByThingId($thingid);
+        //print_r($comment);die;
+        $username = $_SESSION['username'];
+        $smarty->assign('username',$username);
+        $smarty->assign('thingid',$thingid);
+        $smarty->assign('comment',$comment);
+        $smarty->assign('flag',$flag);
+        $smarty->assign('qushi',$qushi);
+        $smarty->display('../templates/mydetail.tpl');
+    }
 }

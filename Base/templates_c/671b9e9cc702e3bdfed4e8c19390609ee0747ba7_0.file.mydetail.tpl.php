@@ -1,19 +1,19 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-30 09:48:29
-         compiled from "C:\wamp\www\templates\detail.tpl" */ ?>
+<?php /* Smarty version 3.1.27, created on 2015-10-30 09:48:24
+         compiled from "C:\wamp\www\templates\mydetail.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:1801956333ced81dad1_14560313%%*/
+/*%%SmartyHeaderCode:1960256333ce83f5613_85061433%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '481c9068197f7f93422d734dd906381dc3f41d79' => 
+    '671b9e9cc702e3bdfed4e8c19390609ee0747ba7' => 
     array (
-      0 => 'C:\\wamp\\www\\templates\\detail.tpl',
-      1 => 1446198441,
+      0 => 'C:\\wamp\\www\\templates\\mydetail.tpl',
+      1 => 1446198500,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1801956333ced81dad1_14560313',
+  'nocache_hash' => '1960256333ce83f5613_85061433',
   'variables' => 
   array (
     'flag' => 0,
@@ -21,17 +21,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'qushi' => 0,
     'comment' => 0,
     'commentitem' => 0,
-    'thingid' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_56333ced885aa1_68696815',
+  'unifunc' => 'content_56333ce8464da8_13412483',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56333ced885aa1_68696815')) {
-function content_56333ced885aa1_68696815 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56333ce8464da8_13412483')) {
+function content_56333ce8464da8_13412483 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '1801956333ced81dad1_14560313';
+$_smarty_tpl->properties['nocache_hash'] = '1960256333ce83f5613_85061433';
 ?>
 <html>
 <head>
@@ -91,7 +90,7 @@ $_smarty_tpl->properties['nocache_hash'] = '1801956333ced81dad1_14560313';
 			
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<a id="modal-90773" href="#modal-container-90773" role="button" class="btn" data-toggle="modal">评论</a>
+					相关评论
 				</div>
 				<div class="panel-body">
 				<?php
@@ -116,28 +115,6 @@ $foreach_commentitem_Sav = $_smarty_tpl->tpl_vars['commentitem'];
 $_smarty_tpl->tpl_vars['commentitem'] = $foreach_commentitem_Sav;
 }
 ?>
-					<div id="modal-container-90773" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-						<form method="post" action="/Base/rooter.php?rooter=Comment/addCommentToDetail">
-							<div class="modal-header">
-								 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-								<h3 id="myModalLabel">
-									写写你的看法~
-								</h3>
-							</div>
-							<div class="modal-body">
-								  <div class="form-group">
-								  	<input type="hidden" name="thingid" id="thingid" value="<?php echo $_smarty_tpl->tpl_vars['thingid']->value;?>
-" />
-								    <label for="name">文本框</label>
-								    <textarea class="form-control" name="comment" style="width:100%" rows="5"></textarea>
-								  </div>
-							</div>
-							 
-							<div class="modal-footer">
-								 <button class="btn" data-dismiss="modal" aria-hidden="true">取消评论</button> <button class="btn btn-primary">发表评论</button>
-							</div>
-						</form>
-					</div>
 				</div>
 				<div class="panel-footer">
 					<div class="pagination">

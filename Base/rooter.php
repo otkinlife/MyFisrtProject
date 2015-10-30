@@ -18,8 +18,22 @@ try{
 //exit();
     $controller = $arr['0']."Controller";
     $function = $arr['1']."Action";
+    $arg1 = $arr['2'];
+    $arg2 = $arr['3'];
     $service = new $controller();
-    $service->$function();
+    if(empty($arg1)){
+        if(empty($arg2)){
+            $service->$function();
+        }else{
+            $service->$function(null,$arg2);
+        }
+    }else{
+        if(empty($arg2)){
+            $service->$function($arg1);
+        }else {
+            $service->$function($arg1,$arg2);
+        }
+    }
 }catch (Exception $e){
     echo "路径错误";
     exit();

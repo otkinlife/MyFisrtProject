@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-29 10:23:22
+<?php /* Smarty version 3.1.27, created on 2015-10-30 11:22:02
          compiled from "C:\wamp\www\templates\index.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:29545631f39a018e37_07233401%%*/
+/*%%SmartyHeaderCode:2302563352da02fd97_68213595%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,27 +9,27 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cf84dd365989a30db2ab73eacd04c6a14af5d71e' => 
     array (
       0 => 'C:\\wamp\\www\\templates\\index.tpl',
-      1 => 1446114197,
+      1 => 1446204117,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '29545631f39a018e37_07233401',
+  'nocache_hash' => '2302563352da02fd97_68213595',
   'variables' => 
   array (
-    'thing' => 0,
     'flag' => 0,
     'username' => 0,
     'data' => 0,
+    'thing' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5631f39a0a6b06_15540983',
+  'unifunc' => 'content_563352da0a9859_83244704',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5631f39a0a6b06_15540983')) {
-function content_5631f39a0a6b06_15540983 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_563352da0a9859_83244704')) {
+function content_563352da0a9859_83244704 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '29545631f39a018e37_07233401';
+$_smarty_tpl->properties['nocache_hash'] = '2302563352da02fd97_68213595';
 ?>
 <html>
 <head>
@@ -52,13 +52,9 @@ $_smarty_tpl->properties['nocache_hash'] = '29545631f39a018e37_07233401';
 			}		
 		});
 	})
-	function test()
-	{
-			alert("<?php echo $_smarty_tpl->tpl_vars['thing']->value['0'];?>
-");
+	function cl(){
+		$("#modal-90773").nodeName=""
 	}
-		
-	
 	<?php if ($_smarty_tpl->tpl_vars['flag']->value != '') {?>
 		alert("<?php echo $_smarty_tpl->tpl_vars['flag']->value['message'];?>
 ");
@@ -119,15 +115,20 @@ $foreach_thing_Sav = $_smarty_tpl->tpl_vars['thing'];
 ?>
 					<blockquote>
 						<p>
-							<?php echo $_smarty_tpl->tpl_vars['thing']->value['0'];?>
-:<?php echo $_smarty_tpl->tpl_vars['thing']->value['2'];?>
+							<?php echo $_smarty_tpl->tpl_vars['thing']->value['2'];?>
 
 						</p> 
 					</blockquote>
 					<a>评论数 <span class="badge"><?php echo $_smarty_tpl->tpl_vars['thing']->value['num'];?>
 </span></a>
-					<a href="/Base/rooter.php?rooter=Thing/showDetail" role="button" class="btn">查看详情</a>
-					<a id="modal-90773" href="#modal-container-90773" role="button" class="btn" data-toggle="modal" onclick="test()">发表评论</a>
+					<a href="/Base/rooter.php?rooter=Thing/showDetail/<?php echo $_smarty_tpl->tpl_vars['thing']->value['0'];?>
+" role="button" class="btn">查看详情</a>
+					<a id="modal-90773" href="#modal-container-90773" role="button"
+
+					   class="btn" data-toggle="modal" data-js="<?php echo $_smarty_tpl->tpl_vars['thing']->value['0'];?>
+">
+						发表评论
+					</a>
 					<hr/>
 				<?php
 $_smarty_tpl->tpl_vars['thing'] = $foreach_thing_Sav;
@@ -140,18 +141,19 @@ $_smarty_tpl->tpl_vars['thing'] = $foreach_thing_Sav;
 								写写你的看法~
 							</h3>
 						</div>
-						<div class="modal-body">
 						<form method="post" action="/Base/rooter.php?rooter=Comment/addComment">
-							  <div class="form-group">
-							  	<input type="hidden" name="thingid" value="<?php echo $_smarty_tpl->tpl_vars['thing']->value['0'];?>
-" /> 
-							    <label for="name">文本框</label>
+							<div class="modal-body">
+							<div class="form-group">
+							  	<input type="hidden" name="thingid" id="thingid" value="<?php echo $_smarty_tpl->tpl_vars['thing']->value['0'];?>
+" />
+							    <label for="name" id="aaa">文本框</label>
 							    <textarea name="comment" class="form-control" style="width:100%" rows="5"></textarea>
 							  </div>
-								
-						</div>
+
+							</div>
 						<div class="modal-footer">
-							 <button class="btn" data-dismiss="modal" aria-hidden="true">取消评论</button> <button class="btn btn-primary">发表评论</button>
+							 <button class="btn" data-dismiss="modal" aria-hidden="true">取消评论</button>
+							 <button type="submit" class="btn btn-primary">发表评论</button>
 						</div>
 						</form>
 					</div>
@@ -161,25 +163,13 @@ $_smarty_tpl->tpl_vars['thing'] = $foreach_thing_Sav;
 					<div class="pagination">
 						<ul>
 							<li>
-								<a href="#">上一页</a>
+								<a href="/Base/rooter.php?rooter=User/index//1">1</a>
 							</li>
 							<li>
-								<a href="#">1</a>
+								<a href="/Base/rooter.php?rooter=User/index//2">2</a>
 							</li>
 							<li>
-								<a href="#">2</a>
-							</li>
-							<li>
-								<a href="#">3</a>
-							</li>
-							<li>
-								<a href="#">4</a>
-							</li>
-							<li>
-								<a href="#">5</a>
-							</li>
-							<li>
-								<a href="#">下一页</a>
+								<a href="/Base/rooter.php?rooter=User/index//3">3</a>
 							</li>
 						</ul>
 					</div>
@@ -189,6 +179,15 @@ $_smarty_tpl->tpl_vars['thing'] = $foreach_thing_Sav;
 		</div>
 	</div>
 </div>
+<?php echo '<script'; ?>
+>
+	$(".btn").click(function(){
+		$("#modal-container-90773").attr('aria-hidden',false);
+		$("#thingid").attr('value',$(this).attr("data-js"));
+	})
+
+<?php echo '</script'; ?>
+>
 </body>
 </html><?php }
 }

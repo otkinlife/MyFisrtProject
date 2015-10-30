@@ -18,8 +18,11 @@ class thingModel extends SqlHelper
     }
     
     //返回所有趣事
-    public function selectAll(){
-        $sql = "select * from qushi_thing order by create_time desc";
+    public function selectAll($page,$pagesize){
+        $page = $page > 1 ? intval($page) : 1;
+        $start = ($page - 1) * $pagesize;
+        $sql = "select * from qushi_thing order by create_time desc limit ".$start.",".$pagesize;
+        //echo $sql;die;
         $result = $this->sqlArray($sql);
         //print_r($result);
         return $result;
@@ -29,6 +32,15 @@ class thingModel extends SqlHelper
     public function selectById($userid){
         $sql = "select * from qushi_thing where user_id='".$userid."' order by create_time desc";
         $result = $this->sqlArray($sql);
+        return $result;
+    }
+    
+    //根据ThingId返回数据
+    public function getByThingId($thingid){
+        $sql = "select * from qushi_thing where thing_id='".$thingid."' order by create_time desc";
+        $result = $this->sqlArray($sql);
+        $result = $result['0'];
+        //print_r($result);die;
         return $result;
     }
 }

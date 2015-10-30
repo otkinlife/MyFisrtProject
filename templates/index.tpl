@@ -66,7 +66,7 @@
 						</p> 
 					</blockquote>
 					<a>评论数 <span class="badge">{$thing.num}</span></a>
-					<a href="/Base/rooter.php?rooter=Thing/showDetail" role="button" class="btn">查看详情</a>
+					<a href="/Base/rooter.php?rooter=Thing/showDetail/{$thing['0']}" role="button" class="btn">查看详情</a>
 					<a id="modal-90773" href="#modal-container-90773" role="button"
 
 					   class="btn" data-toggle="modal" data-js="{$thing['0']}">
@@ -102,25 +102,13 @@
 					<div class="pagination">
 						<ul>
 							<li>
-								<a href="#">上一页</a>
+								<a href="/Base/rooter.php?rooter=User/index//1">1</a>
 							</li>
 							<li>
-								<a href="#">1</a>
+								<a href="/Base/rooter.php?rooter=User/index//2">2</a>
 							</li>
 							<li>
-								<a href="#">2</a>
-							</li>
-							<li>
-								<a href="#">3</a>
-							</li>
-							<li>
-								<a href="#">4</a>
-							</li>
-							<li>
-								<a href="#">5</a>
-							</li>
-							<li>
-								<a href="#">下一页</a>
+								<a href="/Base/rooter.php?rooter=User/index//3">3</a>
 							</li>
 						</ul>
 					</div>

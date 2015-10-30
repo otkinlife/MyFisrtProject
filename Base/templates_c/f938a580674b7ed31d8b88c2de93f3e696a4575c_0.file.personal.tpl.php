@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-28 09:42:24
+<?php /* Smarty version 3.1.27, created on 2015-10-30 09:47:38
          compiled from "C:\wamp\www\templates\personal.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:2201956309880bb8621_39798311%%*/
+/*%%SmartyHeaderCode:3147656333cbaf172b7_95589708%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f938a580674b7ed31d8b88c2de93f3e696a4575c' => 
     array (
       0 => 'C:\\wamp\\www\\templates\\personal.tpl',
-      1 => 1446025247,
+      1 => 1446198353,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2201956309880bb8621_39798311',
+  'nocache_hash' => '3147656333cbaf172b7_95589708',
   'variables' => 
   array (
     'data' => 0,
@@ -26,13 +26,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_56309880c6b830_21304757',
+  'unifunc' => 'content_56333cbb08b806_82216268',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56309880c6b830_21304757')) {
-function content_56309880c6b830_21304757 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56333cbb08b806_82216268')) {
+function content_56333cbb08b806_82216268 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '2201956309880bb8621_39798311';
+$_smarty_tpl->properties['nocache_hash'] = '3147656333cbaf172b7_95589708';
 ?>
 <html>
 <head>
@@ -190,7 +190,8 @@ $foreach_thing_Sav = $_smarty_tpl->tpl_vars['thing'];
 							</p> 
 						</blockquote>
 						<a>评论数 <span class="badge">50</span></a>
-						<a href="/Base/rooter.php?rooter=Thing/showDetail" role="button" class="btn">查看详情</a>
+						<a href="/Base/rooter.php?rooter=Thing/showMyDetail/<?php echo $_smarty_tpl->tpl_vars['thing']->value['0'];?>
+" role="button" class="btn">查看详情</a>
 						<hr/>
 					<?php
 $_smarty_tpl->tpl_vars['thing'] = $foreach_thing_Sav;

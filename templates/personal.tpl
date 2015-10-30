@@ -125,7 +125,7 @@ function UploadSpecialRecommendPic() {
 							</p> 
 						</blockquote>
 						<a>评论数 <span class="badge">50</span></a>
-						<a href="/Base/rooter.php?rooter=Thing/showDetail" role="button" class="btn">查看详情</a>
+						<a href="/Base/rooter.php?rooter=Thing/showMyDetail/{$thing['0']}" role="button" class="btn">查看详情</a>
 						<hr/>
 					{/foreach}
 				{else}
