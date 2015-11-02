@@ -18,6 +18,10 @@
 	{if $flag!=""}
 		alert("{$flag.message}");
 	{/if}
+	{if $currentpage > $pagenum}
+		alert("已经是最后一页");
+		window.location.href = "/Base/rooter.php?rooter=User/index//{$pagenum}";
+	{/if}
 </script>
 </head>
 <body>
@@ -102,13 +106,19 @@
 					<div class="pagination">
 						<ul>
 							<li>
-								<a href="/Base/rooter.php?rooter=User/index//1">1</a>
+								<a href="/Base/rooter.php?rooter=User/index//1">首页</a>
 							</li>
 							<li>
-								<a href="/Base/rooter.php?rooter=User/index//2">2</a>
+								<a href="/Base/rooter.php?rooter=User/index//{$currentpage-1}">上一页</a>
 							</li>
 							<li>
-								<a href="/Base/rooter.php?rooter=User/index//3">3</a>
+								<a>当前第{$currentpage}/{$pagenum}页</a>
+							</li>
+							<li>
+								<a href="/Base/rooter.php?rooter=User/index//{$currentpage+1}">下一页</a>
+							</li>
+							<li>
+								<a href="/Base/rooter.php?rooter=User/index//{$pagenum}">尾页</a>
 							</li>
 						</ul>
 					</div>

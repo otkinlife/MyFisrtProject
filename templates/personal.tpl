@@ -124,8 +124,8 @@ function UploadSpecialRecommendPic() {
 								{$thing['2']}
 							</p> 
 						</blockquote>
-						<a>评论数 <span class="badge">50</span></a>
-						<a href="/Base/rooter.php?rooter=Thing/showMyDetail/{$thing['0']}" role="button" class="btn">查看详情</a>
+						<a>评论数 <span class="badge">{$thing.num}</span></a>
+						<a href="/Base/rooter.php?rooter=Thing/showDetail/{$thing['0']}" role="button" class="btn">查看详情</a>
 						<hr/>
 					{/foreach}
 				{else}
@@ -136,25 +136,19 @@ function UploadSpecialRecommendPic() {
 					<div class="pagination">
 						<ul>
 							<li>
-								<a href="#">上一页</a>
+								<a href="/Base/rooter.php?rooter=User/showperson/1">首页</a>
 							</li>
 							<li>
-								<a href="#">1</a>
+								<a href="/Base/rooter.php?rooter=User/showperson/{$currentpage-1}">上一页</a>
 							</li>
 							<li>
-								<a href="#">2</a>
+								<a>当前第{$currentpage}/{$pagenum}页</a>
 							</li>
 							<li>
-								<a href="#">3</a>
+								<a href="/Base/rooter.php?rooter=User/showperson/{$currentpage+1}">下一页</a>
 							</li>
 							<li>
-								<a href="#">4</a>
-							</li>
-							<li>
-								<a href="#">5</a>
-							</li>
-							<li>
-								<a href="#">下一页</a>
+								<a href="/Base/rooter.php?rooter=User/showperson/{$pagenum}">尾页</a>
 							</li>
 						</ul>
 					</div>

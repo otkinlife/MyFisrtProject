@@ -52,8 +52,7 @@ class UserController{
         return $output;
     }
     //主页显示
-    public function indexAction($flag=null,$page){
-        //$page='2';
+    public function indexAction($flag=null,$page=1){
         $pagesize='5';
         $smarty = new Smarty();
         $thingmodel = new thingModel();
@@ -61,6 +60,7 @@ class UserController{
         session_start();
         $username = $_SESSION['username'];
         $res = $thingmodel->selectAll($page,$pagesize);
+        $pagenum = $thingmodel->getPageNum($pagesize);
         foreach ($res as $var){
             //echo $var['0'];exit();
             $num = $commentmodel->getNumByThingId($var['0']);
@@ -73,21 +73,38 @@ class UserController{
 //        print_r($result);die;
         $smarty->assign('data',$result);
         $smarty->assign("flag",$flag);
+        $smarty->assign('pagenum',$pagenum);
+        $smarty->assign('currentpage',$page);
         $smarty->assign('username',$username);
         $smarty->display('../templates/index.tpl');
     }
 
     //显示个人
-    public function showpersonAction(){
+    public function showpersonAction($page=1){
+        $pagesize = '5';
         $smarty = new Smarty();
         $thingmodel = new thingModel();
         $usermodel = new userModel();
+        $commentmodel = new commentModel();
         session_start();
         $username = $_SESSION['username'];
         $userid = $_SESSION['userid'];
-        $result = $thingmodel->selectById($userid);
+        $result = $thingmodel->selectById($userid, $page, $pagesize);
         $person = $usermodel->getContentById($userid);
-        $smarty->assign('res',$result);
+        $pagenum = $thingmodel->getPageNumById($userid, $pagesize);
+        foreach ($result as $var){
+            //echo $var['0'];exit();
+            $num = $commentmodel->getNumByThingId($var['0']);
+            if(empty($num)){
+                $num=0;
+            }
+            $var['num']= $num;
+            $arr[] = $var;
+        }
+        //print_r($arr);die;
+        $smarty->assign('res',$arr);
+        $smarty->assign('currentpage',$page);
+        $smarty->assign('pagenum',$pagenum);
         $smarty->assign('username',$username);
         $smarty->assign('data','');
         $smarty->assign('person',$person);
@@ -123,13 +140,12 @@ class UserController{
         $useremail = empty($_POST['useremail'])?'':$_POST['useremail'];
         $userpwd = empty($_POST['userpwd'])?'':$_POST['userpwd'];
         $fyzm = empty($_POST['yzm'])?'':$_POST['yzm'];
-        
-        
         $smarty = new Smarty();
         $thingmodel = new thingModel();
         $userModel = new userModel();
         session_start();
         $flag = $userModel->getUserByEandP($useremail,$userpwd);
+        $_SESSION['username']=$flag['0']['1'];
         $yzm = $_SESSION['yzm'];
         $smarty->assign('yzm',$yzm);
         if(strtolower($fyzm) == strtolower($yzm)){
