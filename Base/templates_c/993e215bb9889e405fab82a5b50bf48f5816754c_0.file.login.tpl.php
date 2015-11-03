@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-26 10:17:26
+<?php /* Smarty version 3.1.27, created on 2015-11-03 03:30:43
          compiled from "C:\wamp\www\templates\login.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:12331562dfdb68d3a21_40543667%%*/
+/*%%SmartyHeaderCode:1813456382a6393a3b3_27148142%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '993e215bb9889e405fab82a5b50bf48f5816754c' => 
     array (
       0 => 'C:\\wamp\\www\\templates\\login.tpl',
-      1 => 1445854644,
+      1 => 1446521439,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '12331562dfdb68d3a21_40543667',
+  'nocache_hash' => '1813456382a6393a3b3_27148142',
   'variables' => 
   array (
     'data' => 0,
@@ -21,13 +21,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_562dfdb692b9d7_23750946',
+  'unifunc' => 'content_56382a639891e5_01009142',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_562dfdb692b9d7_23750946')) {
-function content_562dfdb692b9d7_23750946 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56382a639891e5_01009142')) {
+function content_56382a639891e5_01009142 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '12331562dfdb68d3a21_40543667';
+$_smarty_tpl->properties['nocache_hash'] = '1813456382a6393a3b3_27148142';
 ?>
 <!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
@@ -66,9 +66,9 @@ $_smarty_tpl->properties['nocache_hash'] = '12331562dfdb68d3a21_40543667';
 </div>
 <div style="margin-top: 10px;">
   <div class="jumbotron" style="float: left; width:60%">
-      <h1>Hello, world!</h1>
-      <p>...</p>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+      <h1>世界那么大</h1>
+      <p>我带你去看看</p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">© 2015 贾凯超开发</a></p>
   </div>
   <div class="alert alert-warning" style="margin-left:10px;float: left; width: 30%;">
       <form method="post" action="/Base/rooter.php?rooter=User/checkUser">

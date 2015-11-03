@@ -26,9 +26,9 @@
 </div>
 <div style="margin-top: 10px;">
   <div class="jumbotron" style="float: left; width:60%">
-      <h1>Hello, world!</h1>
-      <p>...</p>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+      <h1>世界那么大</h1>
+      <p>我带你去看看</p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">© 2015 贾凯超开发</a></p>
   </div>
   <div class="alert alert-warning" style="margin-left:10px;float: left; width: 30%;">
       <form method="post" action="/Base/rooter.php?rooter=User/checkUser">

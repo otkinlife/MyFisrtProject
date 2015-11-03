@@ -19,6 +19,16 @@
 		alert("已经是最后一页");
 		window.location.href = "/Base/rooter.php?rooter=Thing/showDetail/{$thingid}//{$pagenum}";
 	{/if}
+	$(function(){
+		$("#bt").click(function(){
+			if($("#ta").val()){
+				$("#msg").hide();
+				$('#fm').submit();
+			}else{
+				$("#msg").show();
+			}
+		});
+	})
 </script>
 </head>
 <body>
@@ -61,7 +71,7 @@
 					<hr/>
 				{/foreach}
 					<div id="modal-container-90773" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-						<form method="post" action="/Base/rooter.php?rooter=Comment/addCommentToDetail">
+						<form id="fm" method="post" action="/Base/rooter.php?rooter=Comment/addCommentToDetail">
 							<div class="modal-header">
 								 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 								<h3 id="myModalLabel">
@@ -72,12 +82,14 @@
 								  <div class="form-group">
 								  	<input type="hidden" name="thingid" id="thingid" value="{$thingid}" />
 								    <label for="name">文本框</label>
-								    <textarea class="form-control" name="comment" style="width:100%" rows="5"></textarea>
+								    <span id="msg" style="color: Red; display: none; font-size: 10pt; font-weight: bold; font-family: Andalus;">评论内容不能为空!</span>
+								    <textarea id="ta" class="form-control" name="comment" style="width:100%" rows="5"></textarea>
 								  </div>
 							</div>
 							 
 							<div class="modal-footer">
-								 <button class="btn" data-dismiss="modal" aria-hidden="true">取消评论</button> <button class="btn btn-primary">发表评论</button>
+								 <button class="btn" data-dismiss="modal" aria-hidden="true">取消评论</button>
+								 <button type="button" id="bt" class="btn btn-primary">发表评论</button>
 							</div>
 						</form>
 					</div>

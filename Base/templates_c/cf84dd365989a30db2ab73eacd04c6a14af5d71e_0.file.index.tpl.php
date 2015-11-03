@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-11-03 02:57:06
+<?php /* Smarty version 3.1.27, created on 2015-11-03 04:12:30
          compiled from "C:\wamp\www\templates\index.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:1182556382282ef0322_60269775%%*/
+/*%%SmartyHeaderCode:187255638342e695ca9_07063676%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cf84dd365989a30db2ab73eacd04c6a14af5d71e' => 
     array (
       0 => 'C:\\wamp\\www\\templates\\index.tpl',
-      1 => 1446519393,
+      1 => 1446523947,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1182556382282ef0322_60269775',
+  'nocache_hash' => '187255638342e695ca9_07063676',
   'variables' => 
   array (
     'flag' => 0,
@@ -25,13 +25,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5638228302f3f9_61212919',
+  'unifunc' => 'content_5638342e71f246_19133066',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5638228302f3f9_61212919')) {
-function content_5638228302f3f9_61212919 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5638342e71f246_19133066')) {
+function content_5638342e71f246_19133066 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '1182556382282ef0322_60269775';
+$_smarty_tpl->properties['nocache_hash'] = '187255638342e695ca9_07063676';
 ?>
 <html>
 <head>
@@ -66,6 +66,16 @@ $_smarty_tpl->properties['nocache_hash'] = '1182556382282ef0322_60269775';
 		window.location.href = "/Base/rooter.php?rooter=User/index//<?php echo $_smarty_tpl->tpl_vars['pagenum']->value;?>
 ";
 	<?php }?>
+	$(function(){
+		$("#bt").click(function(){
+			if($("#ta").val()){
+				$("#msg").hide();
+				$('#fm').submit();
+			}else{
+				$("#msg").show();
+			}
+		});
+	})
 <?php echo '</script'; ?>
 >
 </head>
@@ -148,19 +158,20 @@ $_smarty_tpl->tpl_vars['thing'] = $foreach_thing_Sav;
 								写写你的看法~
 							</h3>
 						</div>
-						<form method="post" action="/Base/rooter.php?rooter=Comment/addComment">
+						<form id="fm" method="post" action="/Base/rooter.php?rooter=Comment/addComment">
 							<div class="modal-body">
 							<div class="form-group">
 							  	<input type="hidden" name="thingid" id="thingid" value="<?php echo $_smarty_tpl->tpl_vars['thing']->value['0'];?>
 " />
 							    <label for="name" id="aaa">文本框</label>
-							    <textarea name="comment" class="form-control" style="width:100%" rows="5"></textarea>
+							    <span id="msg" style="color: Red; display: none; font-size: 10pt; font-weight: bold; font-family: Andalus;">评论内容不能为空!</span>
+							    <textarea id="ta" name="comment" class="form-control" style="width:100%" rows="5"></textarea>
 							  </div>
 
 							</div>
 						<div class="modal-footer">
 							 <button class="btn" data-dismiss="modal" aria-hidden="true">取消评论</button>
-							 <button type="submit" class="btn btn-primary">发表评论</button>
+							 <button id="bt" type="button" class="btn btn-primary">发表评论</button>
 						</div>
 						</form>
 					</div>

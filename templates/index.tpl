@@ -22,6 +22,16 @@
 		alert("已经是最后一页");
 		window.location.href = "/Base/rooter.php?rooter=User/index//{$pagenum}";
 	{/if}
+	$(function(){
+		$("#bt").click(function(){
+			if($("#ta").val()){
+				$("#msg").hide();
+				$('#fm').submit();
+			}else{
+				$("#msg").show();
+			}
+		});
+	})
 </script>
 </head>
 <body>
@@ -85,18 +95,19 @@
 								写写你的看法~
 							</h3>
 						</div>
-						<form method="post" action="/Base/rooter.php?rooter=Comment/addComment">
+						<form id="fm" method="post" action="/Base/rooter.php?rooter=Comment/addComment">
 							<div class="modal-body">
 							<div class="form-group">
 							  	<input type="hidden" name="thingid" id="thingid" value="{$thing['0']}" />
 							    <label for="name" id="aaa">文本框</label>
-							    <textarea name="comment" class="form-control" style="width:100%" rows="5"></textarea>
+							    <span id="msg" style="color: Red; display: none; font-size: 10pt; font-weight: bold; font-family: Andalus;">评论内容不能为空!</span>
+							    <textarea id="ta" name="comment" class="form-control" style="width:100%" rows="5"></textarea>
 							  </div>
 
 							</div>
 						<div class="modal-footer">
 							 <button class="btn" data-dismiss="modal" aria-hidden="true">取消评论</button>
-							 <button type="submit" class="btn btn-primary">发表评论</button>
+							 <button id="bt" type="button" class="btn btn-primary">发表评论</button>
 						</div>
 						</form>
 					</div>
