@@ -52,6 +52,10 @@ class ThingController
         $qushi = $thingmodel->getByThingId($thingid);
         $comment = $commentmodel->getContentByThingId($thingid, $page, $pagesize);
         $pagenum =$commentmodel->getPageNumByThingId($thingid, $pagesize);
+        if($pagenum<1)
+        {
+            $pagenum="2";
+        }
         //print_r($comment);die;
         $username = $_SESSION['username'];
         $smarty->assign('currentpage',$page);

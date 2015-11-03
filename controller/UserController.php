@@ -177,7 +177,7 @@ class UserController{
         session_start();
         $username = $_SESSION['username'];
         $userid = $_SESSION['userid'];
-        $result = $thingmodel->selectById($userid);
+        $result = $thingmodel->selectById($userid, 1, 5);
         $person = $usermodel->getContentById($userid);
 
         if ($_FILES["file"]["error"] > 0)
