@@ -70,7 +70,7 @@
 						</p> 
 					</blockquote>
 					<a>评论数 <span class="badge">{$thing.num}</span></a>
-					<a href="/Base/rooter.php?rooter=Thing/showDetail/{$thing['0']}" role="button" class="btn">查看详情</a>
+					<a href="/Base/rooter.php?rooter=Thing/showDetail/{$thing['0']}//1" role="button" class="btn">查看详情</a>
 					<a id="modal-90773" href="#modal-container-90773" role="button"
 
 					   class="btn" data-toggle="modal" data-js="{$thing['0']}">

@@ -43,15 +43,19 @@ class ThingController
     }
     
     //显示详情页
-    public function showDetailAction($thingid,$flag=null){
+    public function showDetailAction($thingid,$flag=null,$page){
+        $pagesize = '5';
         $smarty = new Smarty();
         $thingmodel = new thingModel();
         $commentmodel = new commentModel();
         session_start();
         $qushi = $thingmodel->getByThingId($thingid);
-        $comment = $commentmodel->getContentByThingId($thingid);
+        $comment = $commentmodel->getContentByThingId($thingid, $page, $pagesize);
+        $pagenum =$commentmodel->getPageNumByThingId($thingid, $pagesize);
         //print_r($comment);die;
         $username = $_SESSION['username'];
+        $smarty->assign('currentpage',$page);
+        $smarty->assign('pagenum',$pagenum);
         $smarty->assign('username',$username); 
         $smarty->assign('thingid',$thingid); 
         $smarty->assign('comment',$comment);

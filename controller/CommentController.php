@@ -53,6 +53,6 @@ class CommentController{
             );
         }
         //header("Location: /Base/rooter.php?rooter=User/index");
-        $thingController->showDetailAction($thingid,$res);
+        $thingController->showDetailAction($thingid,$res,1);
     }
 }

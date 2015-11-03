@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-11-02 09:45:55
+<?php /* Smarty version 3.1.27, created on 2015-11-03 02:57:06
          compiled from "C:\wamp\www\templates\index.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:25534563730d31a6c66_11431231%%*/
+/*%%SmartyHeaderCode:1182556382282ef0322_60269775%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cf84dd365989a30db2ab73eacd04c6a14af5d71e' => 
     array (
       0 => 'C:\\wamp\\www\\templates\\index.tpl',
-      1 => 1446457543,
+      1 => 1446519393,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '25534563730d31a6c66_11431231',
+  'nocache_hash' => '1182556382282ef0322_60269775',
   'variables' => 
   array (
     'flag' => 0,
@@ -25,13 +25,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_563730d32477a9_84089987',
+  'unifunc' => 'content_5638228302f3f9_61212919',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_563730d32477a9_84089987')) {
-function content_563730d32477a9_84089987 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5638228302f3f9_61212919')) {
+function content_5638228302f3f9_61212919 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '25534563730d31a6c66_11431231';
+$_smarty_tpl->properties['nocache_hash'] = '1182556382282ef0322_60269775';
 ?>
 <html>
 <head>
@@ -129,7 +129,7 @@ $foreach_thing_Sav = $_smarty_tpl->tpl_vars['thing'];
 					<a>评论数 <span class="badge"><?php echo $_smarty_tpl->tpl_vars['thing']->value['num'];?>
 </span></a>
 					<a href="/Base/rooter.php?rooter=Thing/showDetail/<?php echo $_smarty_tpl->tpl_vars['thing']->value['0'];?>
-" role="button" class="btn">查看详情</a>
+//1" role="button" class="btn">查看详情</a>
 					<a id="modal-90773" href="#modal-container-90773" role="button"
 
 					   class="btn" data-toggle="modal" data-js="<?php echo $_smarty_tpl->tpl_vars['thing']->value['0'];?>

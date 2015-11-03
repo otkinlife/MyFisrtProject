@@ -21,10 +21,21 @@ class commentModel extends SqlHelper{
     }
     
     //根据thingid获取评论
-    public function getContentByThingId($thingid){
-        $sql = "select * from qushi_comment where thing_id='".$thingid."'";
+    public function getContentByThingId($thingid,$page,$pagesize){
+        $page = $page > 1 ? intval($page) : 1;
+        $start = ($page - 1) * $pagesize;
+        $sql = "select * from qushi_comment where thing_id='".$thingid."'limit ".$start.",".$pagesize;
         $result = $this->sqlArray($sql);
         //print_r($result);die;
         return $result;
+    }
+    
+    //获取页数
+    public function  getPageNumByThingId($thingid,$pagesize){
+        $sql = "select * from qushi_comment where thing_id='".$thingid."'";
+        $result = $this->sqlRow($sql);
+        $res = $result/$pagesize;
+        $num = ceil($res);
+        return $num;
     }
 }

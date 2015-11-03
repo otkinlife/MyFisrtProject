@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-30 09:48:29
+<?php /* Smarty version 3.1.27, created on 2015-11-03 03:05:48
          compiled from "C:\wamp\www\templates\detail.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:1801956333ced81dad1_14560313%%*/
+/*%%SmartyHeaderCode:195885638248c4320b9_33913752%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,29 +9,31 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '481c9068197f7f93422d734dd906381dc3f41d79' => 
     array (
       0 => 'C:\\wamp\\www\\templates\\detail.tpl',
-      1 => 1446198441,
+      1 => 1446519937,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1801956333ced81dad1_14560313',
+  'nocache_hash' => '195885638248c4320b9_33913752',
   'variables' => 
   array (
     'flag' => 0,
+    'currentpage' => 0,
+    'pagenum' => 0,
+    'thingid' => 0,
     'username' => 0,
     'qushi' => 0,
     'comment' => 0,
     'commentitem' => 0,
-    'thingid' => 0,
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_56333ced885aa1_68696815',
+  'unifunc' => 'content_5638248c4bdfa2_51020911',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56333ced885aa1_68696815')) {
-function content_56333ced885aa1_68696815 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5638248c4bdfa2_51020911')) {
+function content_5638248c4bdfa2_51020911 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '1801956333ced81dad1_14560313';
+$_smarty_tpl->properties['nocache_hash'] = '195885638248c4320b9_33913752';
 ?>
 <html>
 <head>
@@ -57,6 +59,12 @@ $_smarty_tpl->properties['nocache_hash'] = '1801956333ced81dad1_14560313';
 	<?php if ($_smarty_tpl->tpl_vars['flag']->value != '') {?>
 		alert("<?php echo $_smarty_tpl->tpl_vars['flag']->value['message'];?>
 ");
+	<?php }?>
+	<?php if ($_smarty_tpl->tpl_vars['currentpage']->value > $_smarty_tpl->tpl_vars['pagenum']->value) {?>
+		alert("已经是最后一页");
+		window.location.href = "/Base/rooter.php?rooter=Thing/showDetail/<?php echo $_smarty_tpl->tpl_vars['thingid']->value;?>
+//<?php echo $_smarty_tpl->tpl_vars['pagenum']->value;?>
+";
 	<?php }?>
 <?php echo '</script'; ?>
 >
@@ -143,25 +151,28 @@ $_smarty_tpl->tpl_vars['commentitem'] = $foreach_commentitem_Sav;
 					<div class="pagination">
 						<ul>
 							<li>
-								<a href="#">上一页</a>
+								<a href="/Base/rooter.php?rooter=Thing/showDetail/<?php echo $_smarty_tpl->tpl_vars['thingid']->value;?>
+//1">首页</a>
 							</li>
 							<li>
-								<a href="#">1</a>
+								<a href="/Base/rooter.php?rooter=Thing/showDetail/<?php echo $_smarty_tpl->tpl_vars['thingid']->value;?>
+//<?php echo $_smarty_tpl->tpl_vars['currentpage']->value-1;?>
+">上一页</a>
 							</li>
 							<li>
-								<a href="#">2</a>
+								<a>当前第<?php echo $_smarty_tpl->tpl_vars['currentpage']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['pagenum']->value;?>
+页</a>
 							</li>
 							<li>
-								<a href="#">3</a>
+								<a href="/Base/rooter.php?rooter=Thing/showDetail/<?php echo $_smarty_tpl->tpl_vars['thingid']->value;?>
+//<?php echo $_smarty_tpl->tpl_vars['currentpage']->value+1;?>
+">下一页</a>
 							</li>
 							<li>
-								<a href="#">4</a>
-							</li>
-							<li>
-								<a href="#">5</a>
-							</li>
-							<li>
-								<a href="#">下一页</a>
+								<a href="/Base/rooter.php?rooter=Thing/showDetail/<?php echo $_smarty_tpl->tpl_vars['thingid']->value;?>
+//<?php echo $_smarty_tpl->tpl_vars['pagenum']->value;?>
+">尾页</a>
 							</li>
 						</ul>
 					</div>

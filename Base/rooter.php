@@ -20,18 +20,35 @@ try{
     $function = $arr['1']."Action";
     $arg1 = $arr['2'];
     $arg2 = $arr['3'];
+    $arg3 = $arr['4'];
     $service = new $controller();
     if(empty($arg1)){
         if(empty($arg2)){
-            $service->$function();
+            if(empty($arg3)){
+                $service->$function();
+            }else{
+                $service->$function(null,null,$arg3);
+            }
         }else{
-            $service->$function(null,$arg2);
+            if(empty($arg3)){
+                $service->$function(null,$arg2,null);
+            }else{
+                $service->$function(null,$arg2,$arg3);
+            }
         }
     }else{
         if(empty($arg2)){
-            $service->$function($arg1);
-        }else {
-            $service->$function($arg1,$arg2);
+            if(empty($arg3)){
+                $service->$function($arg1);
+            }else{
+                $service->$function($arg1,null,$arg3);
+            }
+        }else{
+            if(empty($arg3)){
+                $service->$function($arg1,$arg2,null);
+            }else{
+                $service->$function($arg1,$arg2,$arg3);
+            }
         }
     }
 }catch (Exception $e){

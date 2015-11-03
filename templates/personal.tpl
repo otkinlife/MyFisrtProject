@@ -20,6 +20,10 @@
 		alert('{$img.message}');
 		window.location.href = "/Base/rooter.php?rooter=User/showperson";
 	{/if}
+	{if $currentpage > $pagenum}
+		alert("已经是最后一页");
+		window.location.href = "/Base/rooter.php?rooter=User/showperson/{$pagenum}";
+	{/if}
 </script>
 <script>
 	$(function(){
@@ -125,7 +129,7 @@ function UploadSpecialRecommendPic() {
 							</p> 
 						</blockquote>
 						<a>评论数 <span class="badge">{$thing.num}</span></a>
-						<a href="/Base/rooter.php?rooter=Thing/showDetail/{$thing['0']}" role="button" class="btn">查看详情</a>
+						<a href="/Base/rooter.php?rooter=Thing/showDetail/{$thing['0']}//1" role="button" class="btn">查看详情</a>
 						<hr/>
 					{/foreach}
 				{else}
