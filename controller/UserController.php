@@ -228,7 +228,7 @@ class UserController{
         
         $newname = empty($_POST['newname'])?'':$_POST['newname'];
         $newemail = empty($_POST['newemail'])?'':$_POST['newemail'];
-        $result = $thingmodel->selectById($userid);
+        $result = $thingmodel->selectById($userid, 1, 5);
         $person = $usermodel->getContentById($userid);
         $update = $usermodel->updatePerson($newname, $newemail, $userid);
         if($update){
