@@ -20,11 +20,7 @@
 		alert('{$img.message}');
 		window.location.href = "/Base/rooter.php?rooter=User/showperson";
 	{/if}
-	{if $currentpage > $pagenum}
-		alert("已经是最后一页");
-		window.location.href = "/Base/rooter.php?rooter=User/showperson/{$pagenum}";
-	{/if}
-	
+
 </script>
 <script>
 	$(function(){
@@ -34,7 +30,10 @@
 			}		
 		});
 	})
-	
+	{if $currentpage > $pagenum}
+		alert("已经是最后一页");
+		window.location.href = "/Base/rooter.php?rooter=User/showperson/{$pagenum}";
+	{/if}
 function UploadSpecialRecommendPic() {
 	$.ajaxFileUpload({
 		url : '/GZZSServer/s_util/uploadSpecialRecommendPic.action',

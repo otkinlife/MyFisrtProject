@@ -61,14 +61,16 @@ class UserController{
         $username = $_SESSION['username'];
         $res = $thingmodel->selectAll($page,$pagesize);
         $pagenum = $thingmodel->getPageNum($pagesize);
-        foreach ($res as $var){
-            //echo $var['0'];exit();
-            $num = $commentmodel->getNumByThingId($var['0']);
-            if(empty($num)){
-                $num=0;
+        if($res){
+            foreach ($res as $var){
+                //echo $var['0'];exit();
+                $num = $commentmodel->getNumByThingId($var['0']);
+                if(empty($num)){
+                    $num=0;
+                }
+                $var['num']= $num;
+                $result[] = $var;
             }
-            $var['num']= $num;
-            $result[] = $var;
         }
 //        print_r($result);die;
         $smarty->assign('data',$result);
@@ -92,14 +94,17 @@ class UserController{
         $result = $thingmodel->selectById($userid, $page, $pagesize);
         $person = $usermodel->getContentById($userid);
         $pagenum = $thingmodel->getPageNumById($userid, $pagesize);
-        foreach ($result as $var){
-            //echo $var['0'];exit();
-            $num = $commentmodel->getNumByThingId($var['0']);
-            if(empty($num)){
-                $num=0;
+        //echo $pagenum; die;
+        if($result){
+            foreach ($result as $var){
+                //echo $var['0'];exit();
+                $num = $commentmodel->getNumByThingId($var['0']);
+                if(empty($num)){
+                    $num=0;
+                }
+                $var['num']= $num;
+                $arr[] = $var;
             }
-            $var['num']= $num;
-            $arr[] = $var;
         }
         //print_r($arr);die;
         $smarty->assign('res',$arr);
