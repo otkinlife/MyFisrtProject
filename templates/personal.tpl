@@ -24,6 +24,7 @@
 		alert("已经是最后一页");
 		window.location.href = "/Base/rooter.php?rooter=User/showperson/{$pagenum}";
 	{/if}
+	
 </script>
 <script>
 	$(function(){
@@ -92,11 +93,12 @@ function UploadSpecialRecommendPic() {
 						href="#modal-container-90773"
 						class="glyphicon glyphicon-plus" 
 						aria-hidden="true">
+						 
 					</span>
 						
 					</span>
 				</div>
-				<form action="/Base/rooter.php?rooter=Thing/addThing" method="post">
+				<form id="fm" action="/Base/rooter.php?rooter=Thing/addThing" method="post">
 					<div id="modal-container-90773" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							<div class="modal-header">
 								 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -105,18 +107,16 @@ function UploadSpecialRecommendPic() {
 								</h3>
 							</div>
 							<div class="modal-body">
-								<form role="form">
 								  <div class="form-group">
 									<label for="name">文本框</label>
-									<textarea class="form-control" name="thingcontent" style="width:100%" rows="5"></textarea>
+									<span id="msg" style="color: Red; display: none; font-size: 10pt; font-weight: bold; font-family: Andalus;">趣事内容不能为空!</span>
+									<textarea id="ta" class="form-control" name="thingcontent" style="width:100%" rows="5"></textarea>
 								  </div>
-								</form>
-
 							</div>
 
 							<div class="modal-footer">
 								 <button class="btn" data-dismiss="modal" aria-hidden="true">不发表了</button>
-								 <input type="submit" class="btn btn-primary" value="发表出去"/>
+								 <input id="bt" type="submit" class="btn btn-primary" value="发表出去"/>
 							</div>
 						</div>
 					</form>

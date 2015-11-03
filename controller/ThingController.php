@@ -20,7 +20,7 @@ class ThingController
         $username = $_SESSION['username'];
         $thingcontent = empty($_POST['thingcontent'])?'':$_POST['thingcontent'];
         $person = $usermodel->getContentById($userid);
-        $res = $thingmodel->selectById($userid);
+        $res = $thingmodel->selectById($userid, 1, 5);
         $flag = $thingmodel->addThing($userid,$thingcontent);
         if($flag){
             $result = array(

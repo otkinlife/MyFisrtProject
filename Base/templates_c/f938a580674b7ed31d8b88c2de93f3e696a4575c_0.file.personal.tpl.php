@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-11-03 03:00:13
+<?php /* Smarty version 3.1.27, created on 2015-11-03 04:32:57
          compiled from "C:\wamp\www\templates\personal.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:6635638233ddf0d40_05623547%%*/
+/*%%SmartyHeaderCode:21639563838f90eb4e3_74749637%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f938a580674b7ed31d8b88c2de93f3e696a4575c' => 
     array (
       0 => 'C:\\wamp\\www\\templates\\personal.tpl',
-      1 => 1446519424,
+      1 => 1446525173,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '6635638233ddf0d40_05623547',
+  'nocache_hash' => '21639563838f90eb4e3_74749637',
   'variables' => 
   array (
     'data' => 0,
@@ -28,13 +28,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5638233deb9eb1_33530086',
+  'unifunc' => 'content_563838f91bc033_27388040',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5638233deb9eb1_33530086')) {
-function content_5638233deb9eb1_33530086 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_563838f91bc033_27388040')) {
+function content_563838f91bc033_27388040 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '6635638233ddf0d40_05623547';
+$_smarty_tpl->properties['nocache_hash'] = '21639563838f90eb4e3_74749637';
 ?>
 <html>
 <head>
@@ -77,6 +77,7 @@ $_smarty_tpl->properties['nocache_hash'] = '6635638233ddf0d40_05623547';
 		window.location.href = "/Base/rooter.php?rooter=User/showperson/<?php echo $_smarty_tpl->tpl_vars['pagenum']->value;?>
 ";
 	<?php }?>
+	
 <?php echo '</script'; ?>
 >
 <?php echo '<script'; ?>
@@ -149,11 +150,12 @@ function UploadSpecialRecommendPic() {
 						href="#modal-container-90773"
 						class="glyphicon glyphicon-plus" 
 						aria-hidden="true">
+						 
 					</span>
 						
 					</span>
 				</div>
-				<form action="/Base/rooter.php?rooter=Thing/addThing" method="post">
+				<form id="fm" action="/Base/rooter.php?rooter=Thing/addThing" method="post">
 					<div id="modal-container-90773" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							<div class="modal-header">
 								 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -162,18 +164,16 @@ function UploadSpecialRecommendPic() {
 								</h3>
 							</div>
 							<div class="modal-body">
-								<form role="form">
 								  <div class="form-group">
 									<label for="name">文本框</label>
-									<textarea class="form-control" name="thingcontent" style="width:100%" rows="5"></textarea>
+									<span id="msg" style="color: Red; display: none; font-size: 10pt; font-weight: bold; font-family: Andalus;">趣事内容不能为空!</span>
+									<textarea id="ta" class="form-control" name="thingcontent" style="width:100%" rows="5"></textarea>
 								  </div>
-								</form>
-
 							</div>
 
 							<div class="modal-footer">
 								 <button class="btn" data-dismiss="modal" aria-hidden="true">不发表了</button>
-								 <input type="submit" class="btn btn-primary" value="发表出去"/>
+								 <input id="bt" type="submit" class="btn btn-primary" value="发表出去"/>
 							</div>
 						</div>
 					</form>
