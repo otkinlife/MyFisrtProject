@@ -22,13 +22,20 @@ try {
     if($isarg){
         $str = explode('?',$arr['1']);
         $arg = explode('=',$str['1']);
+        //如果方法名为空，默认实例化index
+        if(empty($str['0'])){
+            $func_name = "indexAction";
+        }else{
+            $func_name = $str['0']."Action";
+        }
+    }else {
+        if(empty($arr['1'])){
+            $func_name = "indexAction";
+        }else{
+            $func_name = $arr['1']."Action";
+        }
     }
-    //如果方法名为空，默认实例化index
-    if(empty($str['0'])){
-        $func_name = "indexAction";
-    }else{
-        $func_name = $str['0']."Action";
-    }
+    //print_r($arr);
     
     include(APPPATH . '/' . $con_name . '.php');
         $router = new $con_name();
